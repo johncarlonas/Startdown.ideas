@@ -1,0 +1,25 @@
+.footer {
+  background-color: var(--color-ash);
+  border-top: 1px solid var(--color-cinder);
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.content {
+
+  font-size: 0.9rem;
+  color: #ccc;
+  letter-spacing: 0.02em;
+}
+
+.highlight {
+  color: var(--color-hazard);
+  font-weight: 700;
+}
+
+.heart {
+  color: var(--color-ember);
+}

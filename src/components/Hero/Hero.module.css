@@ -1,0 +1,138 @@
+.hero {
+  padding: 6rem 1.5rem 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.container {
+  max-width: 1000px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.tagWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-ember);
+  background-color: rgba(255, 60, 60, 0.1);
+  color: var(--color-ember);
+
+  font-size: 15px;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.tagDot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-ember);
+  border-radius: 50%;
+}
+
+.title {
+  font-size: 80px;
+  line-height: 1.1;
+  color: var(--color-chalk);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.highlight {
+  color: var(--color-hazard);
+}
+
+.subheader {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: #ccc;
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+
+.subheaderSub {
+  font-size: 0.85em;
+  color: #888;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.actionWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.ctaBtn {
+  display: inline-block;
+  background-color: var(--color-hazard);
+  color: var(--color-void);
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 1.2rem 3rem;
+  text-decoration: none;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, filter 0.15s ease;
+}
+
+.ctaBtn:hover {
+  transform: translate(-2px, -2px);
+  background-color: var(--color-ember);
+  color: #fff;
+  filter: drop-shadow(6px 6px 0 var(--color-hazard));
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--color-smoke);
+  margin: 0 auto 3rem;
+  max-width: 800px;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.statNumber {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-hazard);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #888;
+  letter-spacing: 0.05em;
+
+}

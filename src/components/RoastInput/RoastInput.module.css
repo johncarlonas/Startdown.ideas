@@ -1,0 +1,80 @@
+.section {
+  padding: 2rem 1.5rem 6rem;
+  background-color: var(--color-void);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.textarea {
+  width: 100%;
+  background-color: var(--color-ash);
+  border: 4px dashed var(--color-hazard);
+  color: var(--color-chalk);
+  padding: 1.5rem;
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  resize: vertical;
+  min-height: 150px;
+  outline: none;
+  transition: background-color 0.2s;
+}
+
+.textarea:focus {
+  background-color: var(--color-cinder);
+}
+
+.textarea::placeholder {
+  color: #666;
+  font-style: italic;
+}
+
+.actionArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.button {
+  background-color: var(--color-hazard);
+  color: var(--color-void);
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: var(--font-primary);
+  cursor: pointer;
+  letter-spacing: -0.02em;
+  box-shadow: 6px 6px 0px var(--color-ember);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0px var(--color-ember);
+}
+
+.button:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0px 0px 0px var(--color-ember);
+}
+
+.warning {
+  color: var(--color-ember);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

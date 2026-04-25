@@ -1,0 +1,89 @@
+.navbar {
+  background-color: var(--color-ash);
+  border-bottom: 1px solid var(--color-cinder);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  height: 75px; 
+}
+
+.logoArea {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logoIcon {
+  width: 30px;
+  height: 30px;
+  background-color: #d1d5db;
+  border-radius: 6px;
+}
+
+.logoText {
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--color-chalk);
+  letter-spacing: -0.02em;
+}
+
+.logoHighlight {
+  color: var(--color-hazard);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.link {
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--color-chalk);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.01s, font-weight 0.01s;
+  letter-spacing: 0.05em;
+}
+
+.link:hover {
+  color: var(--color-hazard);
+}
+
+.link.active {
+  color: var(--color-hazard);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+.loginBtn {
+  background-color: var(--color-hazard);
+  color: var(--color-void);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  padding: 0.55rem 1.75rem;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  transition: transform 0.1s ease, background-color 0.15s ease, color 0.15s ease;
+  letter-spacing: 0.05em;
+}
+
+.loginBtn:hover {
+  transform: translateY(-2px);
+  background-color: var(--color-ember);
+  color: #fff;
+}

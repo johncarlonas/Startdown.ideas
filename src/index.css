@@ -1,0 +1,61 @@
+:root {
+  --color-void: #0a0a0a;
+  --color-ash: #111111;
+  --color-cinder: #1a1a1a;
+  --color-smoke: #2a2a2a;
+  --color-hazard: #FFE600;
+  --color-ember: #FF3C3C;
+  --color-acid: #39FF14;
+  --color-chalk: #F5F5F0;
+
+  --font-display: 'Khand', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-void);
+  color: var(--color-chalk);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  cursor: crosshair;
+  position: relative;
+}
+
+/* Grid background on entire site */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.05;
+  background-image:
+    linear-gradient(var(--color-hazard) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-hazard) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: var(--font-display);
+}
+
+p {
+  margin: 0;
+  font-family: var(--font-display);
+}
+
+a, button, input, textarea, select, label, span {
+  font-family: var(--font-display);
+}
