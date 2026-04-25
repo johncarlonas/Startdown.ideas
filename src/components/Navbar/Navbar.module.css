@@ -19,14 +19,11 @@
 .logoArea {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
-.logoIcon {
-  width: 30px;
-  height: 30px;
-  background-color: #d1d5db;
-  border-radius: 6px;
+.dot {
+  color: var(--color-ember);
 }
 
 .logoText {

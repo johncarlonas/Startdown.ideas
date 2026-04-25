@@ -36,8 +36,7 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.container}>
         <div className={styles.logoArea}>
-          <div className={styles.logoIcon}></div>
-          <span className={styles.logoText}>Startdown<span className={styles.logoHighlight}>.ideas</span></span>
+          <span className={styles.logoText}>Startdown<span className={styles.dot}>.</span><span className={styles.logoHighlight}>ideas</span></span>
         </div>
         
         <div className={styles.navLinks}>

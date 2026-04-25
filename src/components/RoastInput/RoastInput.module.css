@@ -1,5 +1,5 @@
 .section {
-  padding: 2rem 0 4rem;
+  padding: 0.8rem 0 4rem;
   display: flex;
   justify-content: center;
 }
@@ -27,7 +27,7 @@
 }
 
 .howSubtext {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: 20px;
   color: #aaa;
   font-weight: 500;
   text-align: center;
@@ -159,8 +159,8 @@
   background-color: var(--color-hazard);
   color: var(--color-void);
   border: none;
-  padding: 0.9rem 2.5rem;
-  font-size: 30px;
+  padding: 0.5rem 2.5rem;
+  font-size: 25px;
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
@@ -191,7 +191,7 @@
 
 .warning {
   color: #9CA3AF;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   margin-top: 0.75rem;
   text-align: center;
@@ -217,6 +217,38 @@
   opacity: 1;
   position: relative;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  text-align: center;
+}
+
+.placeholderContent {
+  max-width: 370px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.placeholderIcon {
+  width: 100px;
+  height: 100px;
+  color: #333;
+}
+
+.placeholderTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #555;
+  letter-spacing: 0.1em;
+}
+
+.placeholderText {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.6;
 }
 
 .loadingState {
@@ -239,10 +271,10 @@
 }
 
 .spinner {
-  width: 48px;
-  height: 48px;
-  border: 3px solid var(--color-smoke);
-  border-top: 3px solid var(--color-hazard);
+  width: 80px;
+  height: 80px;
+  border: 5px solid var(--color-smoke);
+  border-top: 5px solid var(--color-hazard);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -252,14 +284,14 @@
 }
 
 .loadingMsgBox {
-  height: 24px;
+  height: 30px;
   overflow: hidden;
   margin-bottom: 1rem;
 }
 
 .loadingMsg {
   color: #aaa;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-style: italic;
   animation: fadeSwap 1.4s ease-in-out infinite;
 }
@@ -271,7 +303,7 @@
 }
 
 .loadingWarning {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #666;
   letter-spacing: 0.05em;
   margin-bottom: 2rem;
@@ -307,7 +339,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   color: #666;
 }
 

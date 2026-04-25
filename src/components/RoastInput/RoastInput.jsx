@@ -5,7 +5,7 @@ import { mockRoastResponses } from '../../data/dummyRoasts';
 const loadingMessages = [
   'Calculating market failure...',
   'Analyzing how much money you\'ll waste...',
-  'Searching for your competitors (found 47)...',
+  'Searching for your competitors (found 67)...',
   'Consulting the ghost of failed startups...',
   'Measuring delusion levels...',
   'Cross-referencing with Product Hunt graveyard...',
@@ -107,7 +107,7 @@ const RoastInput = () => {
             </div>
             <div className={styles.step}>
               <span className={styles.stepNum}>02</span>
-              <p className={styles.stepText}>Our AI analyzes 47 failure vectors in real time.</p>
+              <p className={styles.stepText}>Our AI analyzes 67 failure vectors in real time.</p>
             </div>
             <div className={styles.step}>
               <span className={styles.stepNum}>03</span>
@@ -156,7 +156,20 @@ const RoastInput = () => {
             
             {status === 'idle' && (
               <div className={styles.feedbackPlaceholder}>
-                {/* Empty placeholder */}
+                <div className={styles.placeholderContent}>
+                  <div className={styles.placeholderIcon}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M12 2C7.03 2 3 6.03 3 11V22H21V11C21 6.03 16.97 2 12 2Z" />
+                      <path d="M9 14H15" />
+                      <path d="M12 11V17" />
+                    </svg>
+                  </div>
+                  <h3 className={styles.placeholderTitle}>WAITING FOR THE VERDICT</h3>
+                  <p className={styles.placeholderText}>
+                    This is where the end of your startup journey will appear. 
+                    Enter your idea and prepare for absolute devastation.
+                  </p>
+                </div>
               </div>
             )}
 
@@ -171,7 +184,7 @@ const RoastInput = () => {
                 </div>
 
                 <div className={styles.loadingWarning}>
-                  [ <span className={styles.textHazard}>ANALYZING</span> 47 FAILURE VECTORS ]
+                  [ <span className={styles.textHazard}>ANALYZING</span> 67 FAILURE VECTORS ]
                 </div>
 
                 <div className={styles.progressContainer}>
