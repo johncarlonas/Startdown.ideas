@@ -46,7 +46,7 @@
 }
 
 .title {
-  font-size: 80px;
+  font-size: 90px;
   line-height: 1.1;
   color: var(--color-chalk);
   margin-bottom: 1.5rem;
@@ -59,15 +59,15 @@
 }
 
 .subheader {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  color: #ccc;
+  font-size: 25px;
+  color: #888;
   margin-bottom: 3rem;
   font-weight: 500;
 }
 
 .subheaderSub {
-  font-size: 0.85em;
-  color: #888;
+  font-size: 20px;
+  color: #fff;
   display: block;
   margin-top: 0.5rem;
 }
@@ -83,9 +83,9 @@
   background-color: var(--color-hazard);
   color: var(--color-void);
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 35px;
   text-transform: uppercase;
-  padding: 1.2rem 3rem;
+  padding: 1rem 3rem;
   text-decoration: none;
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
   transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, filter 0.15s ease;
@@ -102,15 +102,15 @@
   border: 0;
   height: 1px;
   background-color: var(--color-smoke);
-  margin: 0 auto 3rem;
-  max-width: 800px;
+  margin: 0 auto 5rem;
+  max-width: 1000px;
 }
 
 .stats {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 5rem;
+  gap: 10rem;
 }
 
 .statBox {
@@ -121,7 +121,7 @@
 }
 
 .statNumber {
-  font-size: 3.5rem;
+  font-size: 55px;
   font-weight: 700;
   color: var(--color-hazard);
   letter-spacing: 0.02em;
@@ -129,7 +129,7 @@
 }
 
 .statLabel {
-  font-size: 0.8rem;
+  font-size: 20px;
   text-transform: uppercase;
   font-weight: 700;
   color: #888;

@@ -10,7 +10,7 @@ const WallOfShame = () => {
         <div className={styles.header}>
           <h2 className={styles.title}>Wall of Shame</h2>
           <p className={styles.subtext}>
-            Ideas with 100% blind enthusiasm, 0% chance of making a single dime.
+            Ideas with 100% raw passion, 0% chance of making a single dime.
           </p>
         </div>
         
@@ -18,6 +18,12 @@ const WallOfShame = () => {
           {dummyRoasts.map((roast) => (
             <WallOfShameCard key={roast.id} roast={roast} />
           ))}
+        </div>
+
+        <div className={styles.btnWrapper}>
+          <a href="/trash-ideas" className={styles.viewAllBtn}>
+            VIEW ALL TRASH IDEAS
+          </a>
         </div>
       </div>
     </section>

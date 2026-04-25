@@ -1,16 +1,18 @@
 .footer {
-  background-color: var(--color-ash);
+  background-color: #1A1A1A;
   border-top: 1px solid var(--color-cinder);
-  padding: 1.5rem;
+  padding: 0.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 4rem;
+  position: relative;
+  z-index: 1;
 }
 
 .content {
 
-  font-size: 0.9rem;
+  font-size: 18px;
   color: #ccc;
   letter-spacing: 0.02em;
 }

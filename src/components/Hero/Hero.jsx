@@ -24,7 +24,19 @@ const Hero = () => {
         </p>
 
         <div className={styles.actionWrapper}>
-          <a href="#roast-input" className={styles.ctaBtn}>
+          <a
+            href="#roast-input"
+            className={styles.ctaBtn}
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.getElementById('roast-input');
+              if (el) {
+                const navHeight = document.querySelector('nav')?.offsetHeight || 0;
+                const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+                window.scrollTo({ top, behavior: 'smooth' });
+              }
+            }}
+          >
             START ROASTING
           </a>
         </div>

@@ -37,7 +37,7 @@ const Navbar = () => {
       <div className={styles.container}>
         <div className={styles.logoArea}>
           <div className={styles.logoIcon}></div>
-          <span className={styles.logoText}>Startdown<span className={styles.logoHighlight}>.fail</span></span>
+          <span className={styles.logoText}>Startdown<span className={styles.logoHighlight}>.ideas</span></span>
         </div>
         
         <div className={styles.navLinks}>
@@ -46,6 +46,17 @@ const Navbar = () => {
               key={item.href}
               href={item.href}
               className={`${styles.link} ${activeSection === item.href ? styles.active : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                if (item.href === '#hero') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  const el = document.querySelector(item.href);
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }
+              }}
             >
               {item.label}
             </a>

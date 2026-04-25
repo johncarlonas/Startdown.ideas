@@ -28,7 +28,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  cursor: crosshair;
   position: relative;
 }
 
@@ -58,4 +57,9 @@ p {
 
 a, button, input, textarea, select, label, span {
   font-family: var(--font-display);
+}
+
+/* Offset for sticky navbar when scrolling to anchors */
+section[id] {
+  scroll-margin-top: 80px;
 }

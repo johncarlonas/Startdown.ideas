@@ -1,7 +1,5 @@
 .section {
   padding: 4rem 1.5rem;
-  background-color: var(--color-void);
-  border-top: 4px solid var(--color-cinder);
 }
 
 .container {
@@ -35,4 +33,37 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.viewAllBtn {
+  display: inline-block;
+  background-color: var(--color-hazard);
+  color: var(--color-void);
+  font-weight: 700;
+  font-size: 22px;
+  text-transform: uppercase;
+  padding: 0.9rem 2.5rem;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, filter 0.15s ease;
+  cursor: pointer;
+}
+
+.viewAllBtn:hover {
+  transform: translate(-2px, -2px);
+  background-color: var(--color-ember);
+  color: #fff;
+  filter: drop-shadow(5px 5px 0 var(--color-hazard));
+}
+
+.viewAllBtn:active {
+  transform: translate(0, 0);
+  filter: none;
 }
