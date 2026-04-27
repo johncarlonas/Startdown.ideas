@@ -14,18 +14,23 @@ const Hero = () => {
 
         <h1 className={styles.title}>
           <span className={styles.titleMobile}>
-            <span className="glitch" data-text="Roasting Your">Roasting Your</span>
+            <span className="glitch" data-text="Roasting Your">
+              Roasting Your
+            </span>
             <br />
             <span className="glitch" data-text='"Million Dollar" Ideas'>
               <span className={styles.highlight}>"Million Dollar"</span> Ideas
             </span>
             <br />
-            <span className="glitch" data-text="Until You Wake Up">Until You Wake Up</span>
+            <span className="glitch" data-text="Until You Wake Up">
+              Until You Wake Up
+            </span>
           </span>
 
           <span className={styles.titleDesktop}>
             <span className="glitch" data-text='Roasting Your "Million Dollar"'>
-              Roasting Your <span className={styles.highlight}>"Million Dollar"</span>
+              Roasting Your{" "}
+              <span className={styles.highlight}>"Million Dollar"</span>
             </span>
             <br />
             <span className="glitch" data-text="Ideas Until You Wake Up">
