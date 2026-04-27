@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #1A1A1A;
+  background-color: var(--color-ash);
   border-bottom: 1px solid var(--color-cinder);
   position: sticky;
   top: 0;
@@ -10,10 +10,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 80%;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 1rem 0;
-  height: 75px; 
+  padding: 0.75rem 1rem;
+  min-height: 68px;
+  position: relative;
 }
 
 .logoArea {
@@ -28,7 +29,7 @@
 
 .logoText {
   font-weight: 700;
-  font-size: 35px;
+  font-size: 1.8rem;
   color: var(--color-chalk);
   letter-spacing: -0.02em;
 }
@@ -37,15 +38,56 @@
   color: var(--color-hazard);
 }
 
-.navLinks {
-  display: flex;
+.desktopNavLinks {
+  display: none;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
+}
+
+.mobileNavLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.mobilePanel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--color-ash);
+  border-bottom: 1px solid var(--color-cinder);
+  border-top: 1px solid var(--color-cinder);
+  padding: 1rem;
+  display: none;
+}
+
+.mobilePanelOpen {
+  display: block;
+}
+
+.hamburgerMenu {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 22px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--color-hazard);
 }
 
 .link {
-  font-weight: 400;
-  font-size: 20px;
+  font-weight: 500;
+  font-size: 1rem;
   color: var(--color-chalk);
   text-decoration: none;
   text-transform: uppercase;
@@ -68,18 +110,164 @@
   background-color: var(--color-hazard);
   color: var(--color-void);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
-  padding: 0.55rem 1.75rem;
+  padding: 0.55rem 1.25rem;
   border: none;
   cursor: pointer;
-  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-  transition: transform 0.1s ease, background-color 0.15s ease, color 0.15s ease;
+  clip-path: polygon(
+    10px 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%,
+    0 10px
+  );
+  transition:
+    transform 0.1s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
   letter-spacing: 0.05em;
+  width: 100%;
 }
 
 .loginBtn:hover {
   transform: translateY(-2px);
   background-color: var(--color-ember);
   color: #fff;
+}
+
+/* =======================================================
+   2. SMALL (Landscape Phones)
+   576px and up
+   ======================================================= */
+@media (min-width: 576px) {
+  .container {
+    padding: 0.85rem 1.25rem;
+  }
+
+  .logoText {
+    font-size: 2.05rem;
+  }
+
+  .mobilePanel {
+    padding: 1.2rem 1.25rem;
+  }
+}
+
+/* =======================================================
+   3. MEDIUM (Tablets)
+   768px and up
+   ======================================================= */
+@media (min-width: 768px) {
+  .container {
+    max-width: 92%;
+    padding: 0.95rem 0;
+    min-height: 74px;
+  }
+
+  .hamburgerMenu {
+    display: none;
+  }
+
+  .desktopNavLinks {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .mobilePanel,
+  .mobilePanelOpen {
+    display: none;
+  }
+
+  .link {
+    font-size: 0.95rem;
+  }
+
+  .loginBtn {
+    width: auto;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* =======================================================
+   4. LARGE (Laptops)
+   992px and up
+   ======================================================= */
+@media (min-width: 992px) {
+  .container {
+    max-width: 86%;
+  }
+
+  .desktopNavLinks {
+    gap: 2rem;
+  }
+
+  .logoText {
+    font-size: 2.2rem;
+  }
+
+  .link {
+    font-size: 1.05rem;
+  }
+
+  .loginBtn {
+    font-size: 1rem;
+    padding: 0.55rem 1.3rem;
+  }
+}
+
+/* =======================================================
+   5. EXTRA LARGE (Desktops)
+   1200px and up
+   ======================================================= */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 82%;
+  }
+
+  .desktopNavLinks {
+    gap: 2.25rem;
+  }
+
+  .logoText {
+    font-size: 2.35rem;
+  }
+
+  .link {
+    font-size: 1.1rem;
+  }
+
+  .loginBtn {
+    font-size: 1.05rem;
+    padding: 0.58rem 1.55rem;
+  }
+}
+
+/* =======================================================
+   6. EXTRA EXTRA LARGE (Large Monitors)
+   1400px and up
+   ======================================================= */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 80%;
+  }
+
+  .desktopNavLinks {
+    gap: 2.5rem;
+  }
+
+  .logoText {
+    font-size: 2.5rem;
+  }
+
+  .link {
+    font-size: 1.2rem;
+  }
+
+  .loginBtn {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.75rem;
+  }
 }

@@ -1,16 +1,38 @@
-# React + Vite
+# Startdown.ideas - Cloud Computing Final Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Course:** CSEC 3 – Cloud Computing (Microsoft Azure)  
+**Term:** AY 2025–2026, 2nd Semester  
+**Scenario:** Custom Scenario (Scenario E) - AI-Powered Startup Roasting Platform
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Startdown.ideas is a satirical, brutalist web application where users submit their startup ideas to be ruthlessly evaluated by an AI. The application is built using React.js and deployed entirely on Microsoft Azure, demonstrating a secure, scalable, and highly available cloud architecture.
 
-## React Compiler
+### Links
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Live Demo:** `[Insert Azure App Service URL here once deployed]`
+- **Video Presentation:** `[Insert Unlisted YouTube Link here]`
 
-## Expanding the ESLint configuration
+## Team Member
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **John Carlo Nas** - Full-stack Developer, Cloud Architect
+
+## Cloud Architecture & Optimizations
+
+This project utilizes a minimum of three distinct Azure services to ensure reliability and performance:
+
+1. **Azure App Service:** Hosts the React frontend and handles user requests.
+2. **Azure Cosmos DB (NoSQL):** Stores the "Wall of Shame" data (user inputs, AI roasts, and scores) in a serverless, fast-read format.
+3. **Azure Key Vault:** Securely stores sensitive credentials like the OpenAI API key, completely removing secrets from the source code.
+
+**Implemented Cloud Optimizations:**
+
+- **Scalability:** Azure App Service Plan configured with Autoscale Rules (automatically scales out when CPU exceeds 70%).
+- **Security & DevOps:** Integration of Azure Key Vault with Managed Identities to ensure zero-trust secret management between the App Service and external APIs.
+
+## Repository Structure
+
+- `/diagram/` - Contains the visual Azure architecture diagram.
+- `/deployment/` - Contains IaC scripts (Azure CLI/Bicep) and deployment documentation.
+- `/report/` - Contains the Azure Pricing Calculator cost estimate.
+- `CHANGELOG.md` - Chronological log of team contributions.

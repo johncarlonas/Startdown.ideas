@@ -2,15 +2,18 @@
   background-color: var(--color-ash);
   border: 2px solid var(--color-cinder);
   border-radius: 0;
-  padding: 1.25rem;
+  padding: 0.9rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
   box-shadow: 4px 4px 0px var(--color-void);
   position: relative;
   z-index: 1;
-  height: 450px;
+  min-height: 420px;
+  height: auto;
   overflow: hidden;
 }
 
@@ -25,14 +28,14 @@
   align-items: center;
   gap: 0.75rem;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   border-bottom: 2px solid var(--color-cinder);
   padding-bottom: 0.75rem;
 }
 
 .profileIcon {
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
   background-color: var(--color-cinder);
   border: 1px solid var(--color-smoke);
   display: flex;
@@ -52,7 +55,7 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.02em;
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   flex-shrink: 0;
 }
 
@@ -76,7 +79,7 @@
 }
 
 .idea {
-  font-size: 1.1rem;
+  font-size: 0.92rem;
   font-weight: 600;
   line-height: 1.4;
   color: var(--color-chalk);
@@ -93,7 +96,7 @@
   flex-direction: column;
   gap: 0.5rem;
   background-color: var(--color-void);
-  padding: 0.75rem;
+  padding: 0.6rem;
   border: 1px solid var(--color-cinder);
   flex-grow: 1;
 }
@@ -108,7 +111,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   color: #aaa;
@@ -150,12 +153,38 @@
 }
 
 .progressFill {
+  width: 60%;
+  background-color: var(--color-hazard);
   height: 100%;
   transition: width 0.5s ease-out;
 }
 
+.progressEmber {
+  background-color: var(--color-ember);
+}
+
+.progressHazard {
+  background-color: var(--color-hazard);
+}
+
+.progressAcid {
+  background-color: var(--color-acid);
+}
+
+.levelLow {
+  width: 28%;
+}
+
+.levelMid {
+  width: 58%;
+}
+
+.levelHigh {
+  width: 86%;
+}
+
 .metricComment {
-  font-size: 0.75rem;
+  font-size: 0.68rem;
   color: #666;
   font-weight: 400;
 }
@@ -167,7 +196,7 @@
 }
 
 .summary {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--color-hazard);
   font-style: italic;
   font-weight: 500;
@@ -177,4 +206,137 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* =======================================================
+   2. SMALL (Landscape Phones)
+   576px and up
+   ======================================================= */
+@media (min-width: 576px) {
+  .card {
+    padding: 1rem;
+    min-height: 430px;
+  }
+
+  .header {
+    font-size: 0.8rem;
+  }
+
+  .profileIcon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+  }
+
+  .idea {
+    font-size: 0.98rem;
+  }
+
+  .metricHeader {
+    font-size: 0.74rem;
+  }
+
+  .summary {
+    font-size: 0.85rem;
+  }
+}
+
+/* =======================================================
+   3. MEDIUM (Tablets)
+   768px and up
+   ======================================================= */
+@media (min-width: 768px) {
+  .card {
+    min-height: 440px;
+  }
+
+  .idea {
+    font-size: 1rem;
+  }
+}
+
+/* =======================================================
+   4. LARGE (Laptops)
+   992px and up
+   ======================================================= */
+@media (min-width: 992px) {
+  .card {
+    min-height: 450px;
+    padding: 1.1rem;
+  }
+
+  .header {
+    font-size: 0.82rem;
+  }
+
+  .badge {
+    font-size: 0.72rem;
+  }
+
+  .idea {
+    font-size: 1.04rem;
+    -webkit-line-clamp: 3;
+  }
+
+  .summary {
+    font-size: 0.88rem;
+    -webkit-line-clamp: 2;
+  }
+}
+
+/* =======================================================
+   5. EXTRA LARGE (Desktops)
+   1200px and up
+   ======================================================= */
+@media (min-width: 1200px) {
+  .card {
+    min-height: 460px;
+    padding: 1.2rem;
+  }
+
+  .header {
+    font-size: 0.85rem;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+  }
+
+  .idea {
+    font-size: 1.08rem;
+  }
+
+  .metricHeader {
+    font-size: 0.8rem;
+  }
+
+  .metricComment {
+    font-size: 0.75rem;
+  }
+
+  .summary {
+    font-size: 0.9rem;
+  }
+}
+
+/* =======================================================
+   6. EXTRA EXTRA LARGE (Large Monitors)
+   1400px and up
+   ======================================================= */
+@media (min-width: 1400px) {
+  .card {
+    min-height: 470px;
+    padding: 1.25rem;
+  }
+
+  .idea {
+    font-size: 1.12rem;
+  }
+
+  .summary {
+    font-size: 0.95rem;
+  }
 }

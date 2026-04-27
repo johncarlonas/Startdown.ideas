@@ -111,5 +111,4 @@ export const mockRoastResponses = [
   }
 ];
 
-// For backward compatibility while I update the components
 export const mockRoastResult = mockRoastResponses[0];

@@ -1,61 +1,56 @@
 .section {
-  padding: 0.8rem 0 4rem;
+  padding: 1rem 1rem 3rem;
   display: flex;
   justify-content: center;
 }
 
 .wrapper {
-  max-width: 80%;
   width: 100%;
+  max-width: 100%;
   margin: 0 auto;
 }
 
-/* ── HOW THIS WORKS ── */
 .howItWorks {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .howTitle {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2rem, 10vw, 2.8rem);
   font-weight: 700;
   text-align: center;
   color: var(--color-chalk);
   text-transform: uppercase;
   letter-spacing: -0.05em;
   margin-bottom: 0.5rem;
-  text-shadow: 4px 4px 0px var(--color-ember);
+  text-shadow: 3px 3px 0 var(--color-ember);
 }
 
 .howSubtext {
-  font-size: 20px;
+  font-size: 0.95rem;
   color: #aaa;
   font-weight: 500;
   text-align: center;
-  max-width: 600px;
-  margin: 0 auto 2.5rem;
+  max-width: 92%;
+  margin: 0 auto 1.6rem;
 }
 
 .stepsRow {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
 }
 
 .step {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   border: 1px solid var(--color-smoke);
   background-color: var(--color-ash);
-  padding: 1.25rem;
-  opacity: 1;
-  position: relative;
-  z-index: 1;
+  padding: 0.95rem;
 }
 
 .stepNum {
-  font-size: 28px;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--color-hazard);
   line-height: 1;
@@ -63,24 +58,22 @@
 }
 
 .stepText {
-  font-size: 18px;
+  font-size: 0.88rem;
   color: #aaa;
-  line-height: 1.5;
+  line-height: 1.45;
   font-weight: 400;
 }
 
-/* ── TWO-COLUMN LAYOUT ── */
 .columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
 }
 
-/* ── LEFT — INPUT ZONE ── */
 .inputZone {
-  border: 4px dashed var(--color-hazard);
-  padding: 1.5rem;
-  min-height: 550px;
+  border: 3px dashed var(--color-hazard);
+  padding: 1rem;
+  min-height: 420px;
   display: flex;
   flex-direction: column;
 }
@@ -95,37 +88,37 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .inputLabel {
-  font-size: 30px;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--color-chalk);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 .charCount {
-  font-size: 15px;
-  color: #666;
-  font-weight: 400;
+  font-size: 0.75rem;
+  color: #777;
+  font-weight: 500;
 }
 
 .textarea {
   width: 100%;
   flex: 1;
+  min-height: 210px;
   background-color: var(--color-ash);
   border: 1px solid var(--color-smoke);
   color: var(--color-chalk);
-  padding: 1.25rem;
-  font-size: 17px;
+  padding: 0.9rem;
+  font-size: 0.92rem;
   resize: none;
   outline: none;
-  opacity: 1;
-  position: relative;
-  z-index: 1;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .textarea::-webkit-scrollbar {
@@ -138,12 +131,13 @@
 
 .textarea::-webkit-scrollbar-thumb {
   background-color: var(--color-hazard);
-  border-radius: 0;
 }
 
 .textarea:focus {
   border-color: var(--color-hazard);
-  box-shadow: 0 0 0 1px var(--color-hazard), inset 0 0 40px rgba(255, 230, 0, 0.03);
+  box-shadow:
+    0 0 0 1px var(--color-hazard),
+    inset 0 0 40px rgba(255, 230, 0, 0.03);
 }
 
 .textarea::placeholder {
@@ -159,15 +153,26 @@
   background-color: var(--color-hazard);
   color: var(--color-void);
   border: none;
-  padding: 0.5rem 2.5rem;
-  font-size: 25px;
+  padding: 0.72rem 1.5rem;
+  font-size: 0.96rem;
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
   letter-spacing: 0.05em;
-  margin-top: 1.25rem;
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, filter 0.15s ease;
+  margin-top: 1rem;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% 100%,
+    14px 100%,
+    0 calc(100% - 14px)
+  );
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease,
+    filter 0.15s ease;
   align-self: center;
 }
 
@@ -190,10 +195,10 @@
 }
 
 .warning {
-  color: #9CA3AF;
-  font-size: 16px;
+  color: #9ca3af;
+  font-size: 0.8rem;
   font-weight: 400;
-  margin-top: 0.75rem;
+  margin-top: 0.65rem;
   text-align: center;
 }
 
@@ -202,25 +207,21 @@
   font-weight: 700;
 }
 
-/* ── RIGHT — FEEDBACK ZONE ── */
 .feedbackZone {
-  height: 550px;
+  min-height: 420px;
   display: flex;
   flex-direction: column;
 }
 
 .feedbackPlaceholder {
   width: 100%;
-  height: 100%;
+  min-height: 420px;
   background-color: var(--color-ash);
   border: 1px solid var(--color-smoke);
-  opacity: 1;
-  position: relative;
-  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4rem;
+  padding: 1.6rem 1rem;
   text-align: center;
 }
 
@@ -229,50 +230,48 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
 .placeholderIcon {
-  width: 100px;
-  height: 100px;
+  width: 66px;
+  height: 66px;
   color: #333;
 }
 
 .placeholderTitle {
-  font-size: 1.5rem;
+  font-size: 1.02rem;
   font-weight: 800;
   color: #555;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 }
 
 .placeholderText {
-  font-size: 18px;
+  font-size: 0.9rem;
   color: #444;
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 .loadingState {
   width: 100%;
-  height: 100%;
+  min-height: 420px;
   background-color: var(--color-ash);
   border: 1px solid var(--color-smoke);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
   overflow: hidden;
-  padding: 3rem;
-  z-index: 1;
+  padding: 1.5rem 1rem;
 }
 
 .spinnerWrapper {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .spinner {
-  width: 80px;
-  height: 80px;
+  width: 62px;
+  height: 62px;
   border: 5px solid var(--color-smoke);
   border-top: 5px solid var(--color-hazard);
   border-radius: 50%;
@@ -280,46 +279,73 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .loadingMsgBox {
-  height: 30px;
+  height: 28px;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .loadingMsg {
   color: #aaa;
-  font-size: 1.1rem;
+  font-size: 0.88rem;
   font-style: italic;
   animation: fadeSwap 1.4s ease-in-out infinite;
 }
 
 @keyframes fadeSwap {
-  0%, 40% { opacity: 1; }
-  50%, 90% { opacity: 0; }
-  100% { opacity: 1; }
+  0%,
+  40% {
+    opacity: 1;
+  }
+  50%,
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .loadingWarning {
-  font-size: 1rem;
+  font-size: 0.78rem;
   color: #666;
   letter-spacing: 0.05em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   text-transform: uppercase;
 }
 
-.textHazard { color: var(--color-hazard); }
-.textEmber { color: var(--color-ember); }
-.textAcid { color: var(--color-acid); }
-.bgHazard { background-color: var(--color-hazard); }
-.bgEmber { background-color: var(--color-ember); }
-.bgAcid { background-color: var(--color-acid); }
+.textHazard {
+  color: var(--color-hazard);
+}
+
+.textEmber {
+  color: var(--color-ember);
+}
+
+.textAcid {
+  color: var(--color-acid);
+}
+
+.bgHazard {
+  background-color: var(--color-hazard);
+}
+
+.bgEmber {
+  background-color: var(--color-ember);
+}
+
+.bgAcid {
+  background-color: var(--color-acid);
+}
 
 .progressContainer {
   width: 100%;
-  max-width: 300px;
+  max-width: 320px;
 }
 
 .progressBarBg {
@@ -329,66 +355,98 @@
   overflow: hidden;
 }
 
-.progressBarFill {
-  height: 100%;
+.progressNative {
+  display: block;
+  width: 100%;
+  height: 6px;
+  appearance: none;
+  border: 0;
+  background-color: var(--color-cinder);
+  overflow: hidden;
+}
+
+.progressNative::-webkit-progress-bar {
+  background-color: var(--color-cinder);
+}
+
+.progressNative::-webkit-progress-value {
   background-color: var(--color-hazard);
   transition: width 0.15s ease-out;
+}
+
+.progressNative::-moz-progress-bar {
+  background-color: var(--color-hazard);
 }
 
 .progressLabels {
   display: flex;
   justify-content: space-between;
   margin-top: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   color: #666;
 }
 
-/* ── SUCCESS / VERDICT STATE ── */
 .verdictContainer {
+  min-height: 520px;
   background-color: var(--color-ash);
   border: 1px solid var(--color-smoke);
   display: flex;
   flex-direction: column;
-  position: relative;
-  z-index: 1;
   animation: slideIn 0.5s ease forwards;
-  height: 550px;
   overflow: hidden;
 }
 
 @keyframes slideIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .sectionTitle {
-  font-size: 15px;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   color: #666;
   letter-spacing: 0.05em;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.sectionTitleTight {
+  margin-bottom: 0;
 }
 
 .roastHeaderRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 
 .verdictBadgeSmall {
   display: inline-block;
   color: var(--color-void);
   font-weight: 900;
-  font-size: 15px;
-  padding: 0.3rem 0.8rem;
-  letter-spacing: 0.05em;
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  font-size: 0.68rem;
+  padding: 0.28rem 0.55rem;
+  letter-spacing: 0.04em;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% 100%,
+    8px 100%,
+    0 calc(100% - 8px)
+  );
 }
 
 .roastSection {
-  padding: 0.75rem 1.5rem;
+  padding: 0.7rem 1rem;
   border-bottom: 1px solid var(--color-cinder);
   flex: 1;
   display: flex;
@@ -397,9 +455,9 @@
 }
 
 .roastTextBox {
-  padding: 0.5rem 0;
-  font-size: 1rem;
-  line-height: 1.6;
+  padding: 0.3rem 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
   color: var(--color-chalk);
   overflow-y: auto;
   flex: 1;
@@ -415,18 +473,18 @@
 
 .roastTextBox::-webkit-scrollbar-thumb {
   background-color: var(--color-hazard);
-  border-radius: 0;
 }
 
 .bottomSplit {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 2.5rem;
-  padding: 0.5rem 1.5rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
   flex-shrink: 0;
 }
 
-.metricsColumn, .adviceColumn {
+.metricsColumn,
+.adviceColumn {
   display: flex;
   flex-direction: column;
 }
@@ -434,20 +492,20 @@
 .metricsList {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .metricItem {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.35rem;
 }
 
 .metricHeaderCompressed {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   color: #aaa;
@@ -475,41 +533,76 @@
   background-color: var(--color-cinder);
 }
 
-.metricBarFillCompressed {
-  height: 100%;
+.metricProgress {
+  display: block;
+  width: 100%;
+  height: 6px;
+  appearance: none;
+  border: 0;
+  background-color: var(--color-cinder);
+  overflow: hidden;
+}
+
+.metricProgress::-webkit-progress-bar {
+  background-color: var(--color-cinder);
+}
+
+.metricProgressHazard::-webkit-progress-value {
+  background-color: var(--color-hazard);
+}
+
+.metricProgressEmber::-webkit-progress-value {
+  background-color: var(--color-ember);
+}
+
+.metricProgressAcid::-webkit-progress-value {
+  background-color: var(--color-acid);
+}
+
+.metricProgressHazard::-moz-progress-bar {
+  background-color: var(--color-hazard);
+}
+
+.metricProgressEmber::-moz-progress-bar {
+  background-color: var(--color-ember);
+}
+
+.metricProgressAcid::-moz-progress-bar {
+  background-color: var(--color-acid);
 }
 
 .metricNoteCompressed {
-  font-size: 13px;
+  font-size: 0.72rem;
   color: #666;
+  line-height: 1.4;
+  margin: 0;
 }
 
 .adviceGrid {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: 0.65rem;
+  margin-bottom: 0.5rem;
 }
 
 .adviceBox {
   padding: 0;
-  position: relative;
 }
 
 .adviceType {
-  font-size: 16PX;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.22rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .adviceText {
-  font-size: 14px;
+  font-size: 0.76rem;
   color: #aaa;
-  line-height: 1.5;
+  line-height: 1.45;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -517,10 +610,12 @@
 
 .actionsRow {
   display: flex;
-  gap: 1rem;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.6rem;
   align-items: center;
   justify-content: center;
-  padding: 0 1.5rem 1.5rem;
+  padding: 0.5rem 1rem 1rem;
   flex-shrink: 0;
 }
 
@@ -528,14 +623,25 @@
   background-color: var(--color-hazard);
   color: var(--color-void);
   border: none;
-  padding: 0.6rem 1.2rem;
-  font-size: 0.95rem;
+  padding: 0.72rem 1.15rem;
+  font-size: 0.84rem;
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
   letter-spacing: 0.05em;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-  transition: transform 0.15s ease, background-color 0.15s ease, filter 0.15s ease;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease,
+    filter 0.15s ease;
+  white-space: nowrap;
 }
 
 .shareBtn:hover {
@@ -549,16 +655,228 @@
   background-color: transparent;
   color: #888;
   border: 1px solid var(--color-smoke);
-  padding: 0.6rem 1.2rem;
-  font-size: 0.95rem;
+  padding: 0.72rem 1.15rem;
+  font-size: 0.84rem;
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
   letter-spacing: 0.05em;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+  white-space: nowrap;
 }
 
 .retryBtn:hover {
   border-color: var(--color-hazard);
   color: var(--color-chalk);
+}
+
+/* =======================================================
+   2. SMALL (Landscape Phones)
+   576px and up
+   ======================================================= */
+@media (min-width: 576px) {
+  .section {
+    padding: 1.2rem 1.2rem 3.5rem;
+  }
+
+  .wrapper {
+    max-width: 96%;
+  }
+
+  .howSubtext {
+    font-size: 1rem;
+    max-width: 85%;
+  }
+
+  .stepsRow {
+    gap: 1rem;
+  }
+
+  .stepText {
+    font-size: 0.92rem;
+  }
+
+  .inputZone,
+  .feedbackZone,
+  .feedbackPlaceholder,
+  .loadingState {
+    min-height: 470px;
+  }
+
+  .inputLabel {
+    font-size: 1.4rem;
+  }
+
+  .roastBtn,
+  .shareBtn,
+  .retryBtn {
+    font-size: 0.94rem;
+  }
+
+  .roastBtn {
+    padding: 0.78rem 1.75rem;
+  }
+
+  .actionsRow {
+    justify-content: center;
+  }
+}
+
+/* =======================================================
+   3. MEDIUM (Tablets)
+   768px and up
+   ======================================================= */
+@media (min-width: 768px) {
+  .section {
+    padding: 1.25rem 1.5rem 4rem;
+  }
+
+  .wrapper {
+    max-width: 92%;
+  }
+
+  .howSubtext {
+    font-size: 1.06rem;
+  }
+
+  .stepsRow {
+    grid-template-columns: 1fr;
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .inputZone,
+  .feedbackZone,
+  .feedbackPlaceholder,
+  .loadingState {
+    min-height: 520px;
+  }
+
+  .verdictContainer {
+    min-height: 550px;
+  }
+
+  .inputLabel {
+    font-size: 1.55rem;
+  }
+}
+
+/* =======================================================
+   4. LARGE (Laptops)
+   992px and up
+   ======================================================= */
+@media (min-width: 992px) {
+  .wrapper {
+    max-width: 88%;
+  }
+
+  .stepsRow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+
+  .columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .inputZone,
+  .feedbackZone,
+  .feedbackPlaceholder,
+  .loadingState,
+  .verdictContainer {
+    min-height: 560px;
+  }
+
+  .bottomSplit {
+    grid-template-columns: 1.35fr 1fr;
+    gap: 1.4rem;
+  }
+
+  .inputLabel {
+    font-size: 1.7rem;
+  }
+
+  .roastBtn {
+    font-size: 1.02rem;
+    padding: 0.72rem 1.95rem;
+  }
+
+  .shareBtn,
+  .retryBtn {
+    font-size: 0.95rem;
+    padding: 0.76rem 1.25rem;
+  }
+}
+
+/* =======================================================
+   5. EXTRA LARGE (Desktops)
+   1200px and up
+   ======================================================= */
+@media (min-width: 1200px) {
+  .wrapper {
+    max-width: 84%;
+  }
+
+  .inputZone,
+  .feedbackZone,
+  .feedbackPlaceholder,
+  .loadingState,
+  .verdictContainer {
+    min-height: 570px;
+  }
+
+  .inputLabel {
+    font-size: 1.9rem;
+  }
+
+  .roastBtn {
+    font-size: 1.12rem;
+    padding: 0.78rem 2.2rem;
+  }
+
+  .sectionTitle {
+    font-size: 0.8rem;
+  }
+
+  .shareBtn,
+  .retryBtn {
+    font-size: 1rem;
+    padding: 0.8rem 1.4rem;
+  }
+}
+
+/* =======================================================
+   6. EXTRA EXTRA LARGE (Large Monitors)
+   1400px and up
+   ======================================================= */
+@media (min-width: 1400px) {
+  .wrapper {
+    max-width: 80%;
+  }
+
+  .stepNum {
+    font-size: 1.45rem;
+  }
+
+  .stepText {
+    font-size: 1rem;
+  }
+
+  .inputZone,
+  .feedbackZone,
+  .feedbackPlaceholder,
+  .loadingState,
+  .verdictContainer {
+    min-height: 590px;
+  }
+
+  .inputLabel {
+    font-size: 2rem;
+  }
 }

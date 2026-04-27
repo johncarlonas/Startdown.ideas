@@ -1,5 +1,5 @@
 .hero {
-  padding: 6rem 1.5rem 4rem;
+  padding: 2.25rem 0.5rem 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,10 +8,8 @@
   overflow: hidden;
 }
 
-
-
 .container {
-  max-width: 1000px;
+  max-width: 100%;
   width: 100%;
   position: relative;
   z-index: 10;
@@ -20,7 +18,7 @@
 .tagWrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .tag {
@@ -31,22 +29,22 @@
   background-color: rgba(255, 60, 60, 0.1);
   color: var(--color-ember);
 
-  font-size: 15px;
+  font-size: 0.66rem;
   font-weight: 700;
-  padding: 0.25rem 0.75rem;
+  padding: 0.2rem 0.52rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
 .tagDot {
-  width: 10px;
-  height: 10px;
+  width: 7px;
+  height: 7px;
   background-color: var(--color-ember);
   border-radius: 50%;
 }
 
 .title {
-  font-size: 90px;
+  font-size: clamp(2rem, 12vw, 3rem);
   line-height: 1.1;
   color: var(--color-chalk);
   margin-bottom: 1.5rem;
@@ -54,28 +52,51 @@
   font-weight: 700;
 }
 
+.titleMobile {
+  display: block;
+}
+
+.titleDesktop {
+  display: none;
+}
+
+@media (min-width: 575px) {
+  .titleMobile {
+    display: none;
+  }
+
+  .titleDesktop {
+    display: block;
+  }
+}
+
 .highlight {
   color: var(--color-hazard);
 }
 
 .subheader {
-  font-size: 25px;
+  font-size: 0.9rem;
   color: #888;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   font-weight: 500;
 }
 
+.subheaderMain {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .subheaderSub {
-  font-size: 20px;
+  font-size: 0.82rem;
   color: #fff;
   display: block;
-  margin-top: 0.5rem;
+  margin-top: 0.45rem;
 }
 
 .actionWrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 4rem;
+  margin-bottom: 1.1rem;
 }
 
 .ctaBtn {
@@ -83,12 +104,23 @@
   background-color: var(--color-hazard);
   color: var(--color-void);
   font-weight: 700;
-  font-size: 35px;
+  font-size: 1.2rem;
   text-transform: uppercase;
-  padding: 1rem 3rem;
+  padding: 0.86rem 1.62rem;
   text-decoration: none;
-  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
-  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, filter 0.15s ease;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% 100%,
+    16px 100%,
+    0 calc(100% - 16px)
+  );
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease,
+    filter 0.15s ease;
 }
 
 .ctaBtn:hover {
@@ -102,7 +134,7 @@
   border: 0;
   height: 1px;
   background-color: var(--color-smoke);
-  margin: 0 auto 5rem;
+  margin: 0 auto 1.35rem;
   max-width: 1000px;
 }
 
@@ -110,7 +142,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10rem;
+  gap: 1.5rem;
 }
 
 .statBox {
@@ -121,7 +153,7 @@
 }
 
 .statNumber {
-  font-size: 55px;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--color-hazard);
   letter-spacing: 0.02em;
@@ -129,10 +161,247 @@
 }
 
 .statLabel {
-  font-size: 20px;
+  font-size: 0.8rem;
   text-transform: uppercase;
   font-weight: 700;
   color: #888;
   letter-spacing: 0.05em;
+}
 
+/* =======================================================
+   2. SMALL (Landscape Phones)
+   576px and up
+   ======================================================= */
+@media (min-width: 576px) {
+  .hero {
+    padding: 2.6rem 0.75rem 2.8rem;
+  }
+
+  .tag {
+    font-size: 0.74rem;
+    padding: 0.22rem 0.65rem;
+  }
+
+  .tagDot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .title {
+    font-size: clamp(2.4rem, 10vw, 3.4rem);
+  }
+
+  .subheader {
+    font-size: 0.95rem;
+  }
+
+  .subheaderSub {
+    font-size: 0.86rem;
+  }
+
+  .ctaBtn {
+    font-size: 1.35rem;
+    padding: 0.92rem 2.05rem;
+  }
+
+  .subheader {
+    margin-bottom: 1.15rem;
+  }
+
+  .actionWrapper {
+    margin-bottom: 1.25rem;
+  }
+
+  .stats {
+    gap: 2rem;
+  }
+}
+
+/* =======================================================
+   3. MEDIUM (Tablets)
+   768px and up
+   ======================================================= */
+@media (min-width: 768px) {
+  .hero {
+    padding: 3.25rem 1.5rem 3.75rem;
+  }
+
+  .tag {
+    font-size: 0.82rem;
+    padding: 0.24rem 0.72rem;
+  }
+
+  .tagDot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .container {
+    max-width: 92%;
+  }
+
+  .title {
+    font-size: clamp(3rem, 8vw, 4.3rem);
+  }
+
+  .subheader {
+    font-size: 1.22rem;
+  }
+
+  .subheaderMain {
+    white-space: normal;
+  }
+
+  .subheaderSub {
+    font-size: 1.08rem;
+  }
+
+  .ctaBtn {
+    font-size: 1.48rem;
+    padding: 0.95rem 2.5rem;
+  }
+
+  .subheader {
+    margin-bottom: 1.75rem;
+  }
+
+  .actionWrapper {
+    margin-bottom: 2rem;
+  }
+
+  .statNumber {
+    font-size: 2.3rem;
+  }
+
+  .statLabel {
+    font-size: 0.92rem;
+  }
+}
+
+/* =======================================================
+   4. LARGE (Laptops)
+   992px and up
+   ======================================================= */
+@media (min-width: 992px) {
+  .hero {
+    padding: 3.8rem 1.5rem 4rem;
+  }
+
+  .container {
+    max-width: 86%;
+  }
+
+  .title {
+    font-size: clamp(4.2rem, 7vw, 5.5rem);
+  }
+
+  .subheader {
+    font-size: 1.35rem;
+  }
+
+  .ctaBtn {
+    font-size: 1.95rem;
+    padding: 1.02rem 3rem;
+  }
+
+  .subheader {
+    margin-bottom: 2rem;
+  }
+
+  .actionWrapper {
+    margin-bottom: 2.2rem;
+  }
+
+  .stats {
+    gap: 5rem;
+  }
+
+  .statNumber {
+    font-size: 2.8rem;
+  }
+
+  .statLabel {
+    font-size: 1rem;
+  }
+}
+
+/* =======================================================
+   5. EXTRA LARGE (Desktops)
+   1200px and up
+   ======================================================= */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 82%;
+  }
+
+  .title {
+    font-size: clamp(4.8rem, 6.3vw, 6rem);
+  }
+
+  .subheader {
+    font-size: 1.55rem;
+  }
+
+  .subheaderSub {
+    font-size: 1.25rem;
+  }
+
+  .ctaBtn {
+    font-size: 2.1rem;
+    padding: 1.08rem 3.2rem;
+  }
+
+  .subheader {
+    margin-bottom: 2.1rem;
+  }
+
+  .actionWrapper {
+    margin-bottom: 2.35rem;
+  }
+
+  .stats {
+    gap: 7.5rem;
+  }
+
+  .statNumber {
+    font-size: 3.2rem;
+  }
+
+  .statLabel {
+    font-size: 1.12rem;
+  }
+}
+
+/* =======================================================
+   6. EXTRA EXTRA LARGE (Large Monitors)
+   1400px and up
+   ======================================================= */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1000px;
+  }
+
+  .title {
+    font-size: 5.7rem;
+  }
+
+  .subheader {
+    font-size: 1.6rem;
+  }
+
+  .subheaderSub {
+    font-size: 1.3rem;
+  }
+
+  .stats {
+    gap: 10rem;
+  }
+
+  .statNumber {
+    font-size: 3.45rem;
+  }
+
+  .statLabel {
+    font-size: 1.25rem;
+  }
 }

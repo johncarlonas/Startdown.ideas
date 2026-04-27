@@ -1,20 +1,20 @@
 .footer {
-  background-color: #1A1A1A;
+  background-color: var(--color-ash);
   border-top: 1px solid var(--color-cinder);
-  padding: 0.8rem;
+  padding: 0.7rem 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 4rem;
+  margin-top: 3rem;
   position: relative;
   z-index: 1;
 }
 
 .content {
-
-  font-size: 18px;
+  font-size: 0.8rem;
   color: #ccc;
   letter-spacing: 0.02em;
+  text-align: center;
 }
 
 .highlight {
@@ -24,4 +24,67 @@
 
 .heart {
   color: var(--color-ember);
+}
+
+/* =======================================================
+   2. SMALL (Landscape Phones)
+   576px and up
+   ======================================================= */
+@media (min-width: 576px) {
+  .content {
+    font-size: 0.88rem;
+  }
+}
+
+/* =======================================================
+   3. MEDIUM (Tablets)
+   768px and up
+   ======================================================= */
+@media (min-width: 768px) {
+  .footer {
+    margin-top: 3.5rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .content {
+    font-size: 0.95rem;
+  }
+}
+
+/* =======================================================
+   4. LARGE (Laptops)
+   992px and up
+   ======================================================= */
+@media (min-width: 992px) {
+  .footer {
+    margin-top: 3.8rem;
+  }
+
+  .content {
+    font-size: 1rem;
+  }
+}
+
+/* =======================================================
+   5. EXTRA LARGE (Desktops)
+   1200px and up
+   ======================================================= */
+@media (min-width: 1200px) {
+  .footer {
+    margin-top: 4rem;
+  }
+
+  .content {
+    font-size: 1.05rem;
+  }
+}
+
+/* =======================================================
+   6. EXTRA EXTRA LARGE (Large Monitors)
+   1400px and up
+   ======================================================= */
+@media (min-width: 1400px) {
+  .content {
+    font-size: 1.12rem;
+  }
 }

@@ -1,14 +1,14 @@
 .section {
-  padding: 4rem 1.5rem;
+  padding: 2.5rem 1rem;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
 .header {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .subtext {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: 0.95rem;
   color: #aaa;
   font-weight: 500;
   max-width: 600px;
@@ -31,14 +31,14 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 .btnWrapper {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .viewAllBtn {
@@ -46,13 +46,24 @@
   background-color: var(--color-hazard);
   color: var(--color-void);
   font-weight: 700;
-  font-size: 22px;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  padding: 0.9rem 2.5rem;
+  padding: 0.7rem 1.2rem;
   text-decoration: none;
   letter-spacing: 0.05em;
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, filter 0.15s ease;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% 100%,
+    14px 100%,
+    0 calc(100% - 14px)
+  );
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease,
+    filter 0.15s ease;
   cursor: pointer;
 }
 
@@ -66,4 +77,125 @@
 .viewAllBtn:active {
   transform: translate(0, 0);
   filter: none;
+}
+
+/* =======================================================
+   2. SMALL (Landscape Phones)
+   576px and up
+   ======================================================= */
+@media (min-width: 576px) {
+  .section {
+    padding: 2.8rem 1.25rem;
+  }
+
+  .container {
+    max-width: 96%;
+  }
+
+  .subtext {
+    font-size: 1rem;
+  }
+
+  .grid {
+    gap: 1.2rem;
+  }
+
+  .viewAllBtn {
+    font-size: 0.98rem;
+    padding: 0.75rem 1.6rem;
+  }
+}
+
+/* =======================================================
+   3. MEDIUM (Tablets)
+   768px and up
+   ======================================================= */
+@media (min-width: 768px) {
+  .section {
+    padding: 3rem 1.5rem;
+  }
+
+  .container {
+    max-width: 92%;
+  }
+
+  .header {
+    margin-bottom: 2.5rem;
+  }
+
+  .subtext {
+    font-size: 1.05rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* =======================================================
+   4. LARGE (Laptops)
+   992px and up
+   ======================================================= */
+@media (min-width: 992px) {
+  .container {
+    max-width: 88%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .viewAllBtn {
+    font-size: 1.05rem;
+    padding: 0.8rem 2rem;
+  }
+}
+
+/* =======================================================
+   5. EXTRA LARGE (Desktops)
+   1200px and up
+   ======================================================= */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 84%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.6rem;
+  }
+
+  .subtext {
+    font-size: 1.15rem;
+  }
+
+  .viewAllBtn {
+    font-size: 1.15rem;
+    padding: 0.85rem 2.3rem;
+  }
+}
+
+/* =======================================================
+   6. EXTRA EXTRA LARGE (Large Monitors)
+   1400px and up
+   ======================================================= */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .grid {
+    gap: 2rem;
+  }
+
+  .subtext {
+    font-size: 1.25rem;
+  }
+
+  .viewAllBtn {
+    font-size: 1.3rem;
+    padding: 0.9rem 2.5rem;
+  }
 }

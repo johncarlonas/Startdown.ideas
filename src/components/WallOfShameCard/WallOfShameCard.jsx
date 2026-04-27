@@ -1,26 +1,31 @@
-import React from 'react';
-import styles from './WallOfShameCard.module.css';
+import React from "react";
+import styles from "./WallOfShameCard.module.css";
 
 const WallOfShameCard = ({ roast }) => {
-  const { timeAgo, severity, idea, feasibilityScore, feasibilityComment, marketScore, marketComment, originalityScore, originalityComment, summary } = roast;
+  const {
+    timeAgo,
+    severity,
+    idea,
+    feasibilityScore,
+    feasibilityComment,
+    marketScore,
+    marketComment,
+    originalityScore,
+    originalityComment,
+    summary,
+  } = roast;
 
   const getSeverityStyle = (severity) => {
     switch (severity) {
-      case 'ABSOLUTE GARBAGE':
+      case "ABSOLUTE GARBAGE":
         return styles.badgeEmber;
-      case 'VIBE NONSENSE':
+      case "VIBE NONSENSE":
         return styles.badgeHazard;
-      case 'ACTUALLY... OK?':
+      case "ACTUALLY... OK?":
         return styles.badgeAcid;
       default:
         return styles.badgeHazard;
     }
-  };
-
-  const getBarColor = (score) => {
-    if (score < 33) return 'var(--color-ember)';
-    if (score < 66) return 'var(--color-hazard)';
-    return 'var(--color-acid)';
   };
 
   const getBarColorClass = (score) => {
@@ -29,11 +34,32 @@ const WallOfShameCard = ({ roast }) => {
     return styles.dotAcid;
   };
 
+  const getProgressColorClass = (score) => {
+    if (score < 33) return styles.progressEmber;
+    if (score < 66) return styles.progressHazard;
+    return styles.progressAcid;
+  };
+
+  const getProgressLevelClass = (score) => {
+    if (score < 33) return styles.levelLow;
+    if (score < 66) return styles.levelMid;
+    return styles.levelHigh;
+  };
+
   return (
     <div className={styles.card}>
       <div className={styles.header}>
         <div className={styles.profileIcon}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
             <circle cx="12" cy="7" r="4" />
           </svg>
@@ -43,7 +69,7 @@ const WallOfShameCard = ({ roast }) => {
           {severity}
         </div>
       </div>
-      
+
       <div className={styles.body}>
         <p className={styles.idea}>{idea}</p>
       </div>
@@ -52,38 +78,34 @@ const WallOfShameCard = ({ roast }) => {
         <div className={styles.metric}>
           <div className={styles.metricHeader}>
             <span className={styles.metricLabel}>
-              <span className={`${styles.dot} ${getBarColorClass(feasibilityScore)}`}></span>
+              <span
+                className={`${styles.dot} ${getBarColorClass(feasibilityScore)}`}
+              ></span>
               Feasibility
             </span>
             <span className={styles.metricValue}>{feasibilityScore}%</span>
           </div>
           <div className={styles.progressBar}>
-            <div 
-              className={styles.progressFill} 
-              style={{ 
-                width: `${feasibilityScore}%`, 
-                backgroundColor: getBarColor(feasibilityScore) 
-              }} 
+            <div
+              className={`${styles.progressFill} ${getProgressColorClass(feasibilityScore)} ${getProgressLevelClass(feasibilityScore)}`}
             />
           </div>
           <span className={styles.metricComment}>{feasibilityComment}</span>
         </div>
-        
+
         <div className={styles.metric}>
           <div className={styles.metricHeader}>
             <span className={styles.metricLabel}>
-              <span className={`${styles.dot} ${getBarColorClass(marketScore)}`}></span>
+              <span
+                className={`${styles.dot} ${getBarColorClass(marketScore)}`}
+              ></span>
               Market Reach
             </span>
             <span className={styles.metricValue}>{marketScore}%</span>
           </div>
           <div className={styles.progressBar}>
-            <div 
-              className={styles.progressFill} 
-              style={{ 
-                width: `${marketScore}%`, 
-                backgroundColor: getBarColor(marketScore) 
-              }} 
+            <div
+              className={`${styles.progressFill} ${getProgressColorClass(marketScore)} ${getProgressLevelClass(marketScore)}`}
             />
           </div>
           <span className={styles.metricComment}>{marketComment}</span>
@@ -92,18 +114,16 @@ const WallOfShameCard = ({ roast }) => {
         <div className={styles.metric}>
           <div className={styles.metricHeader}>
             <span className={styles.metricLabel}>
-              <span className={`${styles.dot} ${getBarColorClass(originalityScore)}`}></span>
+              <span
+                className={`${styles.dot} ${getBarColorClass(originalityScore)}`}
+              ></span>
               Originality
             </span>
             <span className={styles.metricValue}>{originalityScore}%</span>
           </div>
           <div className={styles.progressBar}>
-            <div 
-              className={styles.progressFill} 
-              style={{ 
-                width: `${originalityScore}%`, 
-                backgroundColor: getBarColor(originalityScore) 
-              }} 
+            <div
+              className={`${styles.progressFill} ${getProgressColorClass(originalityScore)} ${getProgressLevelClass(originalityScore)}`}
             />
           </div>
           <span className={styles.metricComment}>{originalityComment}</span>
