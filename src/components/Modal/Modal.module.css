@@ -1,12 +1,12 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100000; /* Above scanlines */
+  z-index: 100000;
   padding: 1.5rem;
 }
 
@@ -14,73 +14,65 @@
   background-color: var(--color-void);
   border: 4px solid var(--color-hazard);
   width: 100%;
-  max-width: 92%;
-  padding: 1.4rem;
+  max-width: 500px;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   position: relative;
-  box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.6);
   animation: modalPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes modalPop {
-  0% {
-    opacity: 0;
-    transform: scale(0.9) translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+  0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-.iconWrapper {
-  margin-bottom: 1.2rem;
-}
+.iconWrapper { margin-bottom: 1.5rem; }
 
 .icon {
-  width: 54px;
-  height: 54px;
+  width: 64px;
+  height: 64px;
   color: var(--color-ember);
   filter: drop-shadow(0 0 10px rgba(255, 60, 60, 0.3));
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: var(--color-chalk);
   text-transform: uppercase;
-  margin-bottom: 1.2rem;
-  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
   line-height: 1.1;
 }
 
-.alertPrefix {
-  color: var(--color-ember);
-}
+.alertPrefix { color: var(--color-ember); }
 
 .content {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: #aaa;
   line-height: 1.6;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
   font-family: var(--font-body), sans-serif;
 }
 
-.closeBtn {
-  background-color: var(--color-hazard);
-  color: var(--color-void);
-  border: none;
-  padding: 0.7rem 1.6rem;
-  font-size: 0.95rem;
-  font-weight: 800;
+.actionsRow {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.confirmBtn, .cancelBtnClipped {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 900;
   text-transform: uppercase;
   cursor: pointer;
-  transition:
-    transform 0.1s ease,
-    background-color 0.1s ease;
+  transition: transform 0.1s ease;
   clip-path: polygon(
     0 0,
     calc(100% - 10px) 0,
@@ -91,117 +83,25 @@
   );
 }
 
-.closeBtn:hover {
+.confirmBtn {
+  background-color: var(--color-hazard);
+  color: var(--color-void);
+  border: none;
+}
+
+.confirmBtn:hover {
   transform: translate(-2px, -2px);
-  background-color: var(--color-ember);
-  color: #fff;
-  box-shadow: 4px 4px 0px var(--color-hazard);
+  background-color: #fff;
 }
 
-.closeBtn:active {
-  transform: translate(0, 0);
-  box-shadow: none;
+.cancelBtnClipped {
+  background: none;
+  border: 2px solid #444;
+  color: #444;
 }
 
-/* =======================================================
-   2. SMALL (Landscape Phones)
-   576px and up
-   ======================================================= */
-@media (min-width: 576px) {
-  .modal {
-    max-width: 500px;
-    padding: 1.8rem;
-  }
-
-  .title {
-    font-size: 1.35rem;
-  }
-
-  .content {
-    font-size: 1rem;
-  }
-
-  .closeBtn {
-    font-size: 1rem;
-  }
-}
-
-/* =======================================================
-   3. MEDIUM (Tablets)
-   768px and up
-   ======================================================= */
-@media (min-width: 768px) {
-  .modal {
-    padding: 2.1rem;
-  }
-
-  .icon {
-    width: 62px;
-    height: 62px;
-  }
-
-  .title {
-    font-size: 1.55rem;
-  }
-
-  .content {
-    font-size: 1.04rem;
-  }
-}
-
-/* =======================================================
-   4. LARGE (Laptops)
-   992px and up
-   ======================================================= */
-@media (min-width: 992px) {
-  .modal {
-    padding: 2.3rem;
-  }
-
-  .icon {
-    width: 70px;
-    height: 70px;
-  }
-
-  .title {
-    font-size: 1.7rem;
-  }
-
-  .closeBtn {
-    font-size: 1.15rem;
-    padding: 0.85rem 2.5rem;
-  }
-}
-
-/* =======================================================
-   5. EXTRA LARGE (Desktops)
-   1200px and up
-   ======================================================= */
-@media (min-width: 1200px) {
-  .modal {
-    padding: 2.5rem;
-  }
-
-  .title {
-    font-size: 1.8rem;
-  }
-
-  .content {
-    font-size: 1.1rem;
-  }
-
-  .closeBtn {
-    font-size: 1.25rem;
-    padding: 1rem 3rem;
-  }
-}
-
-/* =======================================================
-   6. EXTRA EXTRA LARGE (Large Monitors)
-   1400px and up
-   ======================================================= */
-@media (min-width: 1400px) {
-  .modal {
-    max-width: 540px;
-  }
+.cancelBtnClipped:hover {
+  border-color: #888;
+  color: #888;
+  transform: translate(-2px, -2px);
 }

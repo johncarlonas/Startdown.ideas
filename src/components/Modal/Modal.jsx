@@ -1,7 +1,15 @@
 import React from "react";
 import styles from "./Modal.module.css";
 
-const Modal = ({ isOpen, onClose, title, content }) => {
+const Modal = ({ 
+  isOpen, 
+  onClose, 
+  title, 
+  content, 
+  children, 
+  confirmText,
+  onConfirm
+}) => {
   if (!isOpen) return null;
 
   return (
@@ -24,14 +32,29 @@ const Modal = ({ isOpen, onClose, title, content }) => {
         </div>
 
         <h2 className={styles.title}>
-          <span className={styles.alertPrefix}>ALERT:</span> ANOTHER DELUSION
-          DETECTED
+          <span className={styles.alertPrefix}>ALERT:</span> {title || "ANOTHER DELUSION DETECTED"}
         </h2>
-        <p className={styles.content}>{content}</p>
+        
+        <div className={styles.content}>
+          {content ? <p>{content}</p> : children}
+        </div>
 
-        <button className={styles.closeBtn} onClick={onClose}>
-          I'M DUMB, BUT I GET IT
-        </button>
+        <div className={styles.actionsRow}>
+          {onConfirm ? (
+            <>
+              <button className={styles.confirmBtn} onClick={onConfirm}>
+                {confirmText || "YES, EXPOSE ME"}
+              </button>
+              <button className={styles.cancelBtnClipped} onClick={onClose}>
+                CANCEL
+              </button>
+            </>
+          ) : (
+            <button className={styles.confirmBtn} onClick={onClose}>
+              {confirmText || "I'M DUMB, BUT I GET IT"}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

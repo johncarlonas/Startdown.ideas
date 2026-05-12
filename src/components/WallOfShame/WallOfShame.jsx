@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './WallOfShame.module.css';
 import WallOfShameCard from '../WallOfShameCard/WallOfShameCard';
-import { dummyRoasts } from '../../data/dummyRoasts';
 
 const WallOfShame = () => {
+  const [roasts, setRoasts] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/api/wall`)
+      .then(res => res.json())
+      .then(data => setRoasts(data))
+      .catch(err => console.error('Error fetching wall:', err));
+  }, []);
+
   return (
     <section id="wall-of-shame" className={styles.section}>
       <div className={styles.container}>
@@ -15,9 +23,12 @@ const WallOfShame = () => {
         </div>
         
         <div className={styles.grid}>
-          {dummyRoasts.map((roast) => (
-            <WallOfShameCard key={roast.id} roast={roast} />
-          ))}
+          {roasts
+            .sort((a, b) => new Date(b.timestamp || 0) - new Date(a.timestamp || 0))
+            .slice(0, 3)
+            .map((roast) => (
+              <WallOfShameCard key={roast.id} roast={roast} />
+            ))}
         </div>
 
         <div className={styles.btnWrapper}>

@@ -1,0 +1,224 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100000;
+  padding: 1.5rem;
+}
+
+.modal {
+  background-color: #0a0a0a;
+  border: 1px solid #222;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0,0,0,0.8);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.closeIcon {
+  background: none;
+  border: none;
+  color: #444;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.scrollArea {
+  padding: 2rem;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Hide scrollbar */
+.scrollArea::-webkit-scrollbar {
+  display: none;
+}
+.scrollArea {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.label {
+  color: #444;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.ideaText {
+  color: #888;
+  font-style: italic;
+  font-size: 1.1rem;
+  border-left: 2px solid #222;
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.roastText {
+  color: var(--color-hazard);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.metricsAdviceStack {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.metricsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.metricHead {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #eee;
+  font-weight: 700;
+}
+
+.barContainer {
+  height: 4px;
+  background-color: #1a1a1a;
+  width: 100%;
+}
+
+.barFill {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.metricNote {
+  font-size: 0.75rem;
+  color: #555;
+  margin: 0;
+}
+
+.adviceList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.adviceItem {
+  border-left: 2px solid #222;
+  padding-left: 1.25rem;
+}
+
+.adviceType {
+  font-weight: 900;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.adviceText {
+  color: #999;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #1a1a1a;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.closeBtn {
+  background-color: var(--color-hazard);
+  color: var(--color-void);
+  border: none;
+  padding: 0.8rem 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
+}
+
+@media (max-width: 576px) {
+  .modal {
+    padding: 1rem;
+    max-width: 95%;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .scrollArea {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .roastText {
+    font-size: 1.05rem;
+  }
+
+  .ideaText {
+    font-size: 0.95rem;
+  }
+
+  .metricHead {
+    font-size: 0.75rem;
+  }
+
+  .footer {
+    padding: 1rem;
+  }
+
+  .closeBtn {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+}
