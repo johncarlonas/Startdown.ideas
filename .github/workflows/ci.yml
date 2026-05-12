@@ -18,14 +18,16 @@ jobs:
       with:
         node-version: '22'
         cache: 'npm'
+        cache-dependency-path: 'startdown/package-lock.json'
 
     - name: Install Frontend Dependencies
+      working-directory: ./startdown
       run: npm ci
 
     - name: Build Frontend
+      working-directory: ./startdown
       run: npm run build
 
     - name: Install Backend Dependencies
-      run: |
-        cd server
-        npm ci
+      working-directory: ./startdown/server
+      run: npm ci
