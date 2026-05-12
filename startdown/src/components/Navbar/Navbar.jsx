@@ -14,17 +14,18 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = NAV_ITEMS.map((item) => item.href.replace("#", ""));
+      const scrollPosition = window.scrollY + 200; // Offset for navbar + buffer
+
+      const hero = document.getElementById("hero");
+      const wall = document.getElementById("wall-of-shame");
+
       let current = "#hero";
 
-      for (const id of sections) {
-        const el = document.getElementById(id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 120) {
-            current = `#${id}`;
-          }
-        }
+      // Check from bottom-most section upwards to ensure the correct highlight
+      if (wall && scrollPosition >= wall.offsetTop) {
+        current = "#wall-of-shame";
+      } else if (hero && scrollPosition >= hero.offsetTop) {
+        current = "#hero";
       }
 
       setActiveSection(current);
@@ -47,6 +48,7 @@ const Navbar = () => {
   }, []);
 
   const handleNavClick = (href) => {
+    setActiveSection(href); // Immediate highlight on click
     if (href === "#hero") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {

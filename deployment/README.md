@@ -25,10 +25,10 @@ Established a primary Resource Group named `rg-csec3-final-project` as the logic
 
 | Step | Screenshot |
 | :--- | :--- |
-| Configuring resource group basics | [View](screenshots/resource_group/rg-basics.png) |
-| Adding resource tags | [View](screenshots/resource_group/rg-tags.png) |
-| Reviewing RG settings | [View](screenshots/resource_group/rg-review.png) |
-| Resource group successfully deployed | [View](screenshots/resource_group/rg-deployed.png) |
+| Configuring resource group basics | [View Photo](screenshots/resource_group/rg-basics.png) |
+| Adding resource tags | [View Photo](screenshots/resource_group/rg-tags.png) |
+| Reviewing RG settings | [View Photo](screenshots/resource_group/rg-review.png) |
+| Resource group successfully deployed | [View Photo](screenshots/resource_group/rg-deployed.png) |
 
 ---
 
@@ -38,14 +38,14 @@ Deployed an Azure Cosmos DB account (`startdown-ideas`) in **Serverless capacity
 
 | Step | Screenshot |
 | :--- | :--- |
-| Initializing the NoSQL account | [View](screenshots/cosmos_db/cd-basics.png) |
-| Configuring connectivity | [View](screenshots/cosmos_db/cd-networking.png) |
-| Setting retention/backup policy | [View](screenshots/cosmos_db/cd-backup-policy.png) |
-| Regional distribution settings | [View](screenshots/cosmos_db/cd-global-dist.png) |
-| Pre-deployment validation | [View](screenshots/cosmos_db/cd-review.png) |
-| Successful deployment confirmation | [View](screenshots/cosmos_db/cd-success.png) |
-| Creating the `shame-wall` container | [View](screenshots/cosmos_db/cd-container-creation.png) |
-| Extracting connection string for Key Vault | [View](screenshots/cosmos_db/cd-keys-extraction.png) |
+| Initializing the NoSQL account | [View Photo](screenshots/cosmos_db/cd-basics.png) |
+| Configuring connectivity | [View Photo](screenshots/cosmos_db/cd-networking.png) |
+| Setting retention/backup policy | [View Photo](screenshots/cosmos_db/cd-backup-policy.png) |
+| Regional distribution settings | [View Photo](screenshots/cosmos_db/cd-global-dist.png) |
+| Pre-deployment validation | [View Photo](screenshots/cosmos_db/cd-review.png) |
+| Successful deployment confirmation | [View Photo](screenshots/cosmos_db/cd-success.png) |
+| Creating the `shame-wall` container | [View Photo](screenshots/cosmos_db/cd-container-creation.png) |
+| Extracting connection string for Key Vault | [View Photo](screenshots/cosmos_db/cd-keys-extraction.png) |
 
 ---
 
@@ -55,9 +55,9 @@ Provisioned an Azure App Service Plan (`startdown-ideas`) on the **Basic (B1)** 
 
 | Step | Screenshot |
 | :--- | :--- |
-| Configuring the Linux plan | [View](screenshots/app_service_plan/asp-basics.png) |
-| Reviewing compute resources | [View](screenshots/app_service_plan/asp-review.png) |
-| Plan creation successful | [View](screenshots/app_service_plan/asp-success.png) |
+| Configuring the Linux plan | [View Photo](screenshots/app_service_plan/asp-basics.png) |
+| Reviewing compute resources | [View Photo](screenshots/app_service_plan/asp-review.png) |
+| Plan creation successful | [View Photo](screenshots/app_service_plan/asp-success.png) |
 
 ---
 
@@ -67,13 +67,13 @@ Deployed the Azure App Service (`startdown-ideas`) as the primary hosting enviro
 
 | Step | Screenshot |
 | :--- | :--- |
-| Setting up the web app instance | [View](screenshots/app_services/as-basics.png) |
-| Public access / networking settings | [View](screenshots/app_services/as-networking.png) |
-| Final configuration summary | [View](screenshots/app_services/as-review.png) |
-| Web App successfully provisioned | [View](screenshots/app_services/as-success.png) |
-| Enabling System-Assigned Managed Identity | [View](screenshots/app_services/as-identity-on.png) |
-| Configuring App Service Environment Variables | [View](screenshots/app_services/as-env-variables.png) |
-| GitHub deployment pipeline success | [View](screenshots/app_services/as-deployment-success.png) |
+| Setting up the web app instance | [View Photo](screenshots/app_services/as-basics.png) |
+| Public access / networking settings | [View Photo](screenshots/app_services/as-networking.png) |
+| Final configuration summary | [View Photo](screenshots/app_services/as-review.png) |
+| Web App successfully provisioned | [View Photo](screenshots/app_services/as-success.png) |
+| Enabling System-Assigned Managed Identity | [View Photo](screenshots/app_services/as-identity-on.png) |
+| Configuring App Service Environment Variables | [View Photo](screenshots/app_services/as-env-variables.png) |
+| GitHub deployment pipeline success | [View Photo](screenshots/app_services/as-deployment-success.png) |
 
 ---
 
@@ -88,13 +88,13 @@ This zero-trust approach eliminates the need for hardcoded credentials anywhere 
 
 | Step | Screenshot |
 | :--- | :--- |
-| Standard Tier vault setup | [View](screenshots/key_vault/kv-basics.png) |
-| Configuring RBAC access model | [View](screenshots/key_vault/kv-access-config.png) |
-| Reviewing access policies | [View](screenshots/key_vault/kv-review.png) |
-| Security vault live | [View](screenshots/key_vault/kv-success.png) |
-| Assigning Secrets User role to Managed Identity | [View](screenshots/key_vault/kv-rbac-secrets-user.png) |
-| Assigning Secrets Officer role to developer | [View](screenshots/key_vault/kv-rbac-self-assignment.png) |
-| Production secrets stored in vault | [📸 View](screenshots/key_vault/kv-secrets-list.png) |
+| Standard Tier vault setup | [View Photo](screenshots/key_vault/kv-basics.png) |
+| Configuring RBAC access model | [View Photo](screenshots/key_vault/kv-access-config.png) |
+| Reviewing access policies | [View Photo](screenshots/key_vault/kv-review.png) |
+| Security vault live | [View Photo](screenshots/key_vault/kv-success.png) |
+| Assigning Secrets User role to Managed Identity | [View Photo](screenshots/key_vault/kv-rbac-secrets-user.png) |
+| Assigning Secrets Officer role to developer | [View Photo](screenshots/key_vault/kv-rbac-self-assignment.png) |
+| Production secrets stored in vault | [View Photo](screenshots/key_vault/kv-secrets-list.png) |
 
 ---
 

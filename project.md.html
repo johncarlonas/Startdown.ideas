@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)https://lanlanjr.github.io/CSEC-3/final_project/project.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>project.md</title>
+
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="./project.md_files/mermaid.min.js.download"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="csec-3-%E2%80%93-cloud-computing-microsoft-azure">CSEC 3 – Cloud Computing (Microsoft Azure)</h1>
+<h2 id="final-project-cloud-web-application-deployment-on-azure">Final Project: Cloud Web Application Deployment on Azure</h2>
+<p><strong>Course:</strong> CSEC 3 – Cloud Computing<br>
+<strong>Term:</strong> AY 2025–2026, 2nd Semester<br>
+<strong>Total Points:</strong> 100<br>
+<strong>Project Type:</strong> Group (2-3 members)<br>
+<em>(Note: If done individually, a point deduction will apply)</em><br>
+<strong>Submission:</strong> GitHub repository link + live demo + recorded video presentation<br>
+<strong>Note:</strong> This project serves as the <strong>Final Project</strong> for this course.</p>
+<hr>
+<h2 id="1-overview">1. Overview</h2>
+<p>For your final project, your group will <strong>design and deploy a cloud web application</strong> on Microsoft Azure. The goal is to demonstrate your ability to apply basic cloud architecture principles to a real-world web application scenario, and then define your own way to improve or optimize the deployment (e.g., by adding fault-tolerance, scalability, security, or automated deployments).</p>
+<p>Your output is a <strong>GitHub repository</strong> containing:</p>
+<ol>
+<li>An architecture diagram showing your baseline and improved design</li>
+<li>Deployment documentation (Azure CLI, Bicep scripts, or Azure Portal screenshots)</li>
+<li>A cost estimate report using the Azure Pricing Calculator</li>
+<li>A live demo of your deployed application</li>
+<li>A recorded video presentation</li>
+</ol>
+<p><strong>Note:</strong> Collaboration and individual contributions will both be graded. Each member must be able to explain their design decisions and any part of the architecture during the Q&amp;A.</p>
+<hr>
+<h2 id="2-scenarios">2. Scenarios</h2>
+<p>Choose <strong>one</strong> scenario. The application logic can be simple , the focus is on the <strong>cloud architecture</strong>, not the application itself.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Scenario</th>
+<th>Description</th>
+<th>Required Azure Services</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td><strong>School Portal</strong></td>
+<td>A web portal for a school department (e.g., announcements, event calendar, file downloads)</td>
+<td>App Service (2+ instances), Azure SQL or Cosmos DB, Azure Storage</td>
+</tr>
+<tr>
+<td>B</td>
+<td><strong>E-Commerce Storefront</strong></td>
+<td>A simple product catalog with browsing and cart functionality (no real payment processing needed)</td>
+<td>App Service (2+ instances), Azure SQL, Azure Cache for Redis (optional)</td>
+</tr>
+<tr>
+<td>C</td>
+<td><strong>Student Enrollment System</strong></td>
+<td>A web-based enrollment form that stores submissions and displays results</td>
+<td>App Service (2+ instances), Azure SQL or Table Storage, Azure Functions (optional)</td>
+</tr>
+<tr>
+<td>D</td>
+<td><strong>Community Blog Platform</strong></td>
+<td>A multi-user blog with post creation, comments, and media uploads</td>
+<td>App Service (2+ instances), Blob Storage (for media), Azure SQL</td>
+</tr>
+<tr>
+<td>E</td>
+<td><strong>Custom Scenario</strong></td>
+<td>Propose your own web application scenario (must be approved by instructor)</td>
+<td>Must include at least 3 distinct Azure services with fault tolerance</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Minimum Architecture Requirements:</strong></p>
+<ul>
+<li><strong>Baseline Deployment:</strong> Your web app must be successfully deployed and accessible over the internet.</li>
+<li><strong>Cloud Optimization:</strong> You must implement at least <strong>two</strong> distinct improvements to your baseline deployment (e.g., fault tolerance, scalability, enhanced security, or CI/CD pipelines). See Section 6 for details.</li>
+<li><strong>Minimum 3 distinct Azure services</strong> must be used and connected in your final architecture.</li>
+</ul>
+<hr>
+<h2 id="3-what-you-need-to-submit">3. What You Need to Submit</h2>
+<h3 id="deliverable-1---architecture-diagram-20-pts">Deliverable 1 - Architecture Diagram (20 pts)</h3>
+<p>Draw a professional diagram showing your Azure architecture. You can use <a href="https://draw.io/">draw.io</a> or Azure Architecture Center icons.</p>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>Show all Azure resources used (minimum 3 distinct services)</li>
+<li>Show how resources connect to each other (arrows, labels, protocols)</li>
+<li>Identify the <strong>security boundary</strong> (what is public vs. private)</li>
+<li>Highlight <strong>your chosen cloud optimizations</strong> (e.g., Availability Zones, autoscale rules, redundant storage, security components)</li>
+</ul>
+<h3 id="deliverable-2---deployment-documentation-30-pts">Deliverable 2 - Deployment Documentation (30 pts)</h3>
+<p>You must document exactly how your infrastructure was deployed. You may choose <strong>one</strong> of the following methods:</p>
+<ul>
+<li><strong>Method A (Code):</strong> Write Azure CLI commands or a Bicep template.</li>
+<li><strong>Method B (GUI):</strong> Provide detailed, step-by-step screenshots of your resource creation in the Azure Portal.</li>
+</ul>
+<p>Regardless of the method, your documentation must cover at least:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Resource</th>
+<th>Example Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Resource Group</td>
+<td>The container for all project resources</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Core compute resource</td>
+<td>App Service Plan + App Service (2+ instances), or VMSS</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Data resource</td>
+<td>Azure SQL Database, Storage Account, or Cosmos DB</td>
+</tr>
+<tr>
+<td>4</td>
+<td>A security control</td>
+<td>NSG rule, Managed Identity, Key Vault, or WAF</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rules:</strong></p>
+<ul>
+<li><strong>If using Method A (Code):</strong> Scripts must be runnable and include a <code>README.md</code> explaining how to execute them. No hardcoded passwords.</li>
+<li><strong>If using Method B (GUI):</strong> Screenshots must be clear, organized sequentially in a document or folder, and include brief explanations of your chosen settings.</li>
+<li>Maintain a <code>CHANGELOG.md</code> tracking all changes throughout development (see Section 7).</li>
+</ul>
+<p><strong>Reference:</strong></p>
+<ul>
+<li>Bicep Deployment Scripts: https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-script-develop?tabs=CLI</li>
+</ul>
+<h3 id="deliverable-3---cost-estimate-report-15-pts">Deliverable 3 - Cost Estimate Report (15 pts)</h3>
+<p>A single Markdown or PDF document (1–2 pages) covering:</p>
+<ol>
+<li><strong>Architecture summary</strong>: brief description of your deployed resources</li>
+<li><strong>Itemized cost breakdown</strong>: use the <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Azure Pricing Calculator</a> to estimate monthly cost for each resource</li>
+<li><strong>Screenshot</strong>: include a screenshot of your completed Azure Pricing Calculator estimate</li>
+<li><strong>Cost optimization notes</strong>: explain at least one way you could reduce costs (e.g., reserved instances, scaling down during off-hours, using free tier services)</li>
+</ol>
+<h3 id="deliverable-4---live-demo--video-presentation-35-pts">Deliverable 4 - Live Demo &amp; Video Presentation (35 pts)</h3>
+<p>A recorded video presentation (minimum <strong>10 minutes</strong>, maximum <strong>15 minutes</strong>) that includes a <strong>live demo</strong> of your deployed application:</p>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Time</th>
+<th>What to Show</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Architecture walkthrough</td>
+<td>3 min</td>
+<td>Walk through your diagram and explain your baseline deployment and chosen cloud optimizations</td>
+</tr>
+<tr>
+<td>Live demo</td>
+<td>5 min</td>
+<td>Show your deployed web application running in the browser. Demonstrate it working end-to-end. Show the Azure Portal with your deployed resources. Display your code scripts or portal screenshots.</td>
+</tr>
+<tr>
+<td>Cost review</td>
+<td>2 min</td>
+<td>Present your cost estimate and explain your cost optimization choices</td>
+</tr>
+<tr>
+<td>Conclusion</td>
+<td>2 min</td>
+<td>Wrap up, challenges faced, and key learnings</td>
+</tr>
+</tbody>
+</table>
+<p>All group members must speak during the presentation. You must clearly explain your work and demonstration.</p>
+<p><strong>Submission:</strong> Upload your video to YouTube as an <strong>unlisted</strong> video and include the link in your <code>README.md</code>.</p>
+<hr>
+<h2 id="4-grading-rubric-matrix">4. Grading Rubric Matrix</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Deliverable</th>
+<th>Excellent</th>
+<th>Proficient</th>
+<th>Developing</th>
+<th>Needs Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Architecture Diagram</strong> (20 pts)</td>
+<td>All Azure resources clearly shown and labeled. Connections explicit with arrows and protocols. Security boundary clearly marked. Chosen cloud optimizations highlighted and explained. - <strong>20 pts</strong></td>
+<td>All resources shown with minor labeling gaps. Connections present but protocol unclear. Security boundary marked. Cloud optimizations shown but loosely explained. - <strong>15 pts</strong></td>
+<td>Missing 1 resource or labels incomplete. Connections shown but unlabeled. Security boundary partially identified. Cloud optimizations not clearly shown. - <strong>10 pts</strong></td>
+<td>Resources incomplete or missing. No connections shown. Security boundary missing. No cloud optimizations demonstrated. - <strong>5 pts</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Deployment Documentation</strong> (30 pts)</td>
+<td><strong>Code:</strong> Scripts deploy flawlessly. Zero secrets. Clear README. <strong>GUI:</strong> High-quality, organized screenshots covering every step with clear explanations. CHANGELOG.md has detailed, dated entries from all members. GitHub commit history shows equal, regular contributions. - <strong>30 pts</strong></td>
+<td><strong>Code:</strong> Scripts deploy with minor errors. One credential exposed. README fine. <strong>GUI:</strong> Good screenshots but missing a few steps. CHANGELOG.md has entries from all members but some lack dates. Uneven commits. - <strong>20 pts</strong></td>
+<td><strong>Code:</strong> Scripts have major errors. Credential visible. README vague. <strong>GUI:</strong> Disorganized or partial screenshots. Not all members contributed to CHANGELOG.md. One member has significantly fewer commits. - <strong>10 pts</strong></td>
+<td>Documentation unusable. CHANGELOG.md missing or fewer than 3 entries. One or two members did all the work. - <strong>5 pts</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Cost Estimate Report</strong> (15 pts)</td>
+<td>Clear architecture summary. Itemized cost breakdown for every resource with accurate Azure Pricing Calculator screenshot. At least one realistic cost optimization strategy explained with estimated savings. - <strong>15 pts</strong></td>
+<td>Architecture summary present. Cost breakdown included but missing 1–2 resources. Screenshot present. Cost optimization mentioned but not detailed or savings not estimated. - <strong>10 pts</strong></td>
+<td>Summary vague. Cost breakdown incomplete or unrealistic. Screenshot present but does not match deployed resources. Cost optimization missing or irrelevant. - <strong>5 pts</strong></td>
+<td>Report missing or incomprehensible. No cost breakdown. No screenshot. - <strong>0 pts</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Live Demo &amp; Video Presentation</strong> (35 pts)</td>
+<td>Architecture explained confidently with clear focus on chosen cloud optimizations. Live demo works flawlessly - application runs end-to-end in browser, Azure Portal resources shown, IaC command demonstrated. Cost review presented clearly. All group members speak equally and meaningfully. - <strong>35 pts</strong></td>
+<td>Architecture explained adequately but rushed on cloud optimizations. Live demo works with minor issues. Azure Portal shown. All group members speak but one member's contribution is noticeably shorter. - <strong>25 pts</strong></td>
+<td>Architecture explanation disorganized or read from slides. Demo partially works. Significant stumbling. Dominated by one member while others barely speak. - <strong>15 pts</strong></td>
+<td>Architecture not explained. Demo fails or not attempted. One or more members do not speak. - <strong>5 pts</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>TOTAL</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>/100</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="5-repository-structure">5. Repository Structure</h2>
+<p>Organize your GitHub repository like this:</p>
+<pre class="hljs"><code><div>/
+├── diagram/
+│   └── architecture.png        # Your architecture diagram
+├── deployment/
+│   ├── deploy.azcli            # Code: Azure CLI script or Bicep (optional)
+│   ├── screenshots/            # GUI: Folder for Azure Portal screenshots if using GUI
+│   └── README.md               # Clear step-by-step deployment instructions
+├── report/
+│   ├── cost-estimate.md        # Cost estimate report with screenshot
+│   └── report.md               # Optional: additional written report
+├── CHANGELOG.md                # Detailed log of all changes and contributions
+└── README.md                   # Project overview, team members, video link, and demo URL
+</div></code></pre>
+<hr>
+<h2 id="6-cloud-optimization-requirements">6. Cloud Optimization Requirements</h2>
+<p>Your architecture <strong>must</strong> demonstrate at least <strong>two</strong> of the following cloud optimizations to improve upon a basic deployment:</p>
+<h3 id="fault-tolerance">Fault Tolerance</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Availability Zones</strong></td>
+<td>Deploy App Service or VMs across 2+ zones</td>
+</tr>
+<tr>
+<td><strong>Zone-Redundant Services</strong></td>
+<td>Use ZRS storage, zone-redundant Azure SQL</td>
+</tr>
+<tr>
+<td><strong>Load Balancing</strong></td>
+<td>Azure Load Balancer or Application Gateway with health probes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scalability">Scalability</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Autoscale Rules</strong></td>
+<td>App Service Plan autoscale based on CPU &gt; 70%</td>
+</tr>
+<tr>
+<td><strong>Virtual Machine Scale Sets (VMSS)</strong></td>
+<td>Automatically add/remove VM instances based on load</td>
+</tr>
+</tbody>
+</table>
+<h3 id="security--devops">Security &amp; DevOps</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Advanced Security Controls</strong></td>
+<td>Implement Azure WAF, restrict access via advanced NSGs, or use Managed Identities</td>
+</tr>
+<tr>
+<td><strong>CI/CD Automation</strong></td>
+<td>Automate your deployment using GitHub Actions or Azure DevOps</td>
+</tr>
+</tbody>
+</table>
+<h3 id="performance--caching">Performance &amp; Caching</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Content Delivery</strong></td>
+<td>Use Azure Front Door or Azure CDN to cache static assets globally</td>
+</tr>
+<tr>
+<td><strong>Data Caching</strong></td>
+<td>Implement Azure Cache for Redis to improve database query speeds</td>
+</tr>
+</tbody>
+</table>
+<h3 id="monitoring--operations">Monitoring &amp; Operations</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Advanced Telemetry</strong></td>
+<td>Integrate Application Insights for deep application performance monitoring</td>
+</tr>
+<tr>
+<td><strong>Alerting System</strong></td>
+<td>Configure Azure Monitor Alerts based on custom metrics or log queries</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cost-optimization">Cost Optimization</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Serverless Architecture</strong></td>
+<td>Refactor application to use Azure Functions (Consumption Plan) to scale-to-zero</td>
+</tr>
+<tr>
+<td><strong>Spot Instances</strong></td>
+<td>Use Azure Spot Virtual Machines for non-critical background processing workloads</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="7-changelogmd-requirements">7. CHANGELOG.md Requirements</h2>
+<p>Every group must maintain a <code>CHANGELOG.md</code> file in the root of their GitHub repository. This file serves as a detailed, chronological log of all changes made throughout the project lifecycle. It is a professional software engineering practice and will be graded as part of Deliverable 2.</p>
+<h3 id="format">Format</h3>
+<p>Use the <a href="https://keepachangelog.com/">Keep a Changelog</a> format. Your <code>CHANGELOG.md</code> must include:</p>
+<pre class="hljs"><code><div><span class="hljs-section"># Changelog</span>
+
+All notable changes to this project will be documented in this file.
+
+<span class="hljs-section">## [Unreleased]</span>
+
+<span class="hljs-section">### Added</span>
+<span class="hljs-bullet">- </span>New features or resources added
+
+<span class="hljs-section">### Changed</span>
+<span class="hljs-bullet">- </span>Modifications to existing resources or configurations
+
+<span class="hljs-section">### Fixed</span>
+<span class="hljs-bullet">- </span>Bug fixes or corrections
+
+<span class="hljs-section">### Removed</span>
+<span class="hljs-bullet">- </span>Deleted resources or deprecated code
+
+---
+
+<span class="hljs-section">## [YYYY-MM-DD] - Version or Milestone Description</span>
+
+<span class="hljs-section">### Added</span>
+<span class="hljs-bullet">- </span><span class="hljs-code">`[Author Name]`</span> - Description of what was added (e.g., "Created Resource Group 'rg-student-project' in Southeast Asia region")
+<span class="hljs-bullet">- </span><span class="hljs-code">`[Author Name]`</span> - Description of what was added
+
+<span class="hljs-section">### Changed</span>
+<span class="hljs-bullet">- </span><span class="hljs-code">`[Author Name]`</span> - Description of what was modified (e.g., "Updated NSG rules to restrict SSH access to specific admin IP only")
+
+<span class="hljs-section">### Fixed</span>
+<span class="hljs-bullet">- </span><span class="hljs-code">`[Author Name]`</span> - Description of what was fixed (e.g., "Fixed Bicep template error: corrected storage account name to meet lowercase-only requirement")
+
+<span class="hljs-section">### Removed</span>
+<span class="hljs-bullet">- </span><span class="hljs-code">`[Author Name]`</span> - Description of what was removed (e.g., "Deleted unused test VM to reduce costs")
+</div></code></pre>
+<h3 id="requirements">Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Every member must contribute entries</strong></td>
+<td>Each group member must have logged entries under their name in the changelog.</td>
+</tr>
+<tr>
+<td><strong>Dated entries</strong></td>
+<td>Every entry must include the date (YYYY-MM-DD) when the change was made.</td>
+</tr>
+<tr>
+<td><strong>Specific descriptions</strong></td>
+<td>Entries must be specific and descriptive. Avoid vague entries like "fixed stuff" or "updated code." Instead write: "Fixed Bicep parameter error: changed <code>storageAccountType</code> from <code>Standard_LRS</code> to <code>Standard_GRS</code> for geo-redundancy."</td>
+</tr>
+<tr>
+<td><strong>Minimum entries</strong></td>
+<td>Each member must have at least <strong>5 distinct changelog entries</strong> across the project timeline.</td>
+</tr>
+<tr>
+<td><strong>Covers all deliverables</strong></td>
+<td>Entries should span all project areas: architecture diagram updates, IaC scripts, cost report, and presentation preparation.</td>
+</tr>
+<tr>
+<td><strong>Updated regularly</strong></td>
+<td>The changelog should be updated throughout development, not filled in at the last minute. Commit history should reflect regular updates.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="why-this-matters">Why This Matters</h3>
+<p>In professional software engineering, a changelog:</p>
+<ul>
+<li>Provides an audit trail of who changed what and when</li>
+<li>Helps team members understand the project's evolution</li>
+<li>Makes debugging easier by tracking when changes were introduced</li>
+<li>Demonstrates accountability and professional documentation practices</li>
+<li>Serves as evidence of individual contribution for group project grading</li>
+</ul>
+<hr>
+<h2 id="8-reminders">8. Reminders</h2>
+<ul>
+<li>Use your <strong>Azure for Students</strong> account. Stay within the free tier where possible.</li>
+<li><strong>Delete your resources</strong> after the project is graded to avoid unwanted charges.</li>
+<li>Each member should be able to explain any part of your deployment and architecture - you may be asked individually detailed questions during Q&amp;A.</li>
+<li>When in doubt, keep it simple and make it work.</li>
+<li><strong>This is your Final Project</strong> - treat it with professional seriousness.</li>
+</ul>
+
+
+
+</body></html>

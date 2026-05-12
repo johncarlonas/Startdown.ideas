@@ -5,83 +5,77 @@ All notable changes to this project will be documented in this file.
 ## [2026-04-25] - UI/UX Prototype
 
 ### Added
-
-- `John Carlo Nas` Finalized the Brutalist UI/UX design system, including the custom color palette and component layouts.
-- `John Carlo Nas` Developed the static React.js frontend, ensuring UI components and mock data structures are ready for Azure backend integration.
+- `John Carlo Nas` Built out the brutalist UI design system — color palette, typography, and core component layouts.
+- `John Carlo Nas` Set up the static React frontend with mock data, ready for backend wiring.
 
 ## [2026-04-26] - Initial Azure Foundation
 
 ### Added
+- `John Carlo Nas` Created `README.md` and `CHANGELOG.md` based on rubric requirements.
+- `John Carlo Nas` Created the primary Resource Group (`rg-csec3-final-project`) on Azure Portal.
 
-- `John Carlo Nas` Created master `README.md` and `CHANGELOG.md` documentation templates adhering to project rubric requirements.
-- `John Carlo Nas` Provisioned the foundational Azure infrastructure by creating the primary Resource Group (`rg-csec3-final-project`) in the Azure Portal.
-
-## [2026-05-06] - Data Layer Provisioning
+## [2026-05-06] - Data Layer
 
 ### Added
-
-- `John Carlo Nas` Initialized the project Resource Group `rg-csec3-final-project` in Japan East.
-- `John Carlo Nas` Deployed Azure Cosmos DB for NoSQL (`startdown-ideas`) in Serverless mode for cost-optimized data persistence.
+- `John Carlo Nas` Set up Resource Group in Japan East.
+- `John Carlo Nas` Deployed Cosmos DB for NoSQL (`startdown-ideas`) in Serverless mode.
 
 ### Changed
+- `John Carlo Nas` Opened Cosmos DB firewall to "All networks" for testing.
 
-- `John Carlo Nas` Adjusted Cosmos DB firewall to "All networks" to prepare for cross-service communication testing.
-
-## [2026-05-08] - Compute & Security Hardening
+## [2026-05-08] - Compute & Security
 
 ### Added
-
-- `John Carlo Nas` Deployed Azure Key Vault (`kv-startdown-ideas`) using RBAC for secure secret management.
-- `John Carlo Nas` Successfully provisioned the Core Compute layer via **App Service Plan** (`startdown-ideas`) in Japan East.
-- `John Carlo Nas` Configured Compute scaling to **2 instances** to satisfy High Availability (HA) requirements.
+- `John Carlo Nas` Deployed Key Vault (`kv-startdown-ideas`) with RBAC.
+- `John Carlo Nas` Provisioned App Service Plan (`startdown-ideas`) on B1 tier in Japan East.
+- `John Carlo Nas` Set instance count to 2 for HA.
 
 ### Fixed
+- `John Carlo Nas` Got past `RequestDisallowedByAzure` blocks by switching to B1 tier in Japan East.
 
-- `John Carlo Nas` Resolved `RequestDisallowedByAzure` policy blocks by successfully validating the B1 Pricing Tier within the Japan East region, bypassing previous regional compute-quota limitations.
-
-## [2026-05-10] - Application Hosting & Scaling
+## [2026-05-10] - App Hosting & Scaling
 
 ### Added
-
-- `John Carlo Nas` Provisioned Azure App Service (Web App) using the Node 22 LTS runtime stack, attaching it to the validated B1 App Service Plan.
-- `John Carlo Nas` Configured App Service Environment Variables to prepare for secure secret fetching from Azure Key Vault.
-- `John Carlo Nas` Drafted the final Cloud Architecture Diagram highlighting the security boundaries, scaling rules (2 instances), and serverless components.
-- `John Carlo Nas` Generated the Cost Estimate Report using the Azure Pricing Calculator to validate the cost-optimization strategy of the B1 and Serverless tiers.
+- `John Carlo Nas` Deployed App Service (Web App) on Node 22 LTS, linked to the B1 plan.
+- `John Carlo Nas` Set up App Service Environment Variables for Key Vault access.
+- `John Carlo Nas` Drafted the Cloud Architecture Diagram.
+- `John Carlo Nas` Generated the Cost Estimate via Azure Pricing Calculator.
 
 ### Changed
-
-- `John Carlo Nas` Pivoted final compute architecture entirely to App Service (B1) after abandoning the Static Web App approach due to persistent tenant-level policy compliance blocks.
+- `John Carlo Nas` Dropped Static Web Apps, moved fully to App Service (B1) due to policy blocks.
 
 ### Fixed
-
-- `John Carlo Nas` Navigated API Throttling (Error 429) during rapid infrastructure deployments by pacing resource provisioning and successfully validating the final Web App container.
+- `John Carlo Nas` Hit Error 429 (API throttling) during rapid deployments — slowed down provisioning to fix it.
 
 ## [2026-05-11] - Architecture Finalization
 
 ### Added
-- `John Carlo Nas` Designed and finalized the Cloud Architecture Diagram (`architecture.png`), clearly defining the private network security boundaries, scaling configurations (2 instances), and cost optimizations (Serverless DB).
-- `John Carlo Nas` Generated standard Groq API credentials and prepared them for secure injection into Azure Key Vault, finalizing the hybrid external-API security approach to bypass student subscription limits.
+- `John Carlo Nas` Finalized `architecture.png` — covers network boundaries, scaling, and cost optimizations.
+- `John Carlo Nas` Generated Groq API credentials and prepped them for Key Vault injection.
 
-## [2026-05-12] - AI Engine Integration & Project Completion
+## [2026-05-12] - AI Engine & Deployment
 
 ### Added
-- `John Carlo Nas` Initialized the Node.js/Express backend server (`server/` directory) to serve as the integration layer between the React frontend and Azure services.
-- `John Carlo Nas` Implemented `@azure/identity` (`DefaultAzureCredential`) and `@azure/keyvault-secrets` locally to securely fetch the OpenAI API key without hardcoding credentials.
-- `John Carlo Nas` Integrated the `@azure/cosmos` SDK into the backend to handle real-time NoSQL read/write operations for the "Wall of Shame" feature.
-- `John Carlo Nas` Finalized the "Startdown AI Engine" with Groq (Llama 3.3) integration, a brutalist responsive UI, and a dedicated Wall of Shame expansion system.
-- `John Carlo Nas` Configured GitHub Actions CI workflow (`ci.yml`) to automate frontend builds and backend dependency validation.
-- `John Carlo Nas` Completed the Deliverable 2 Deployment Documentation (`deployment/README.md`) with a detailed step-by-step GUI provisioning walkthrough.
-- `John Carlo Nas` Finalized the Cost Estimate Report (`report/cost-estimate.md`) with comprehensive itemized pricing proof and cost-optimization strategies.
-- `John Carlo Nas` Integrated 20+ infrastructure screenshots across all documentation to satisfy project rubric evidence requirements.
-- `John Carlo Nas` Migrated sensitive API keys and connection strings to **Azure Key Vault**, implementing a zero-trust security model via **RBAC (Key Vault Secrets Officer and User)**.
-- `John Carlo Nas` Initialized the production NoSQL environment in **Cosmos DB** by creating the database container with serverless scaling optimizations.
-- `John Carlo Nas` Configured production **App Service Environment Variables** to securely bridge the application with Key Vault secrets.
-- `John Carlo Nas` Connected the GitHub repository to **Azure App Service** and successfully triggered the final production deployment.
+- `John Carlo Nas` Built the Node.js/Express backend (`server/`) as the bridge between the frontend and Azure.
+- `John Carlo Nas` Wired up `@azure/identity` and `@azure/keyvault-secrets` for passwordless secret fetching.
+- `John Carlo Nas` Integrated `@azure/cosmos` SDK for Cosmos DB read/write on the Wall of Shame.
+- `John Carlo Nas` Finished the AI Roast Engine using Groq (Llama 3.3) with a full brutalist UI.
+- `John Carlo Nas` Added GitHub Actions CI (`ci.yml`) for automated frontend builds and backend checks.
+- `John Carlo Nas` Wrote out the full deployment guide (`deployment/README.md`) with GUI walkthrough.
+- `John Carlo Nas` Finalized the Cost Estimate report (`report/cost-estimate.md`).
+- `John Carlo Nas` Added 20+ screenshots across all docs for rubric evidence.
+- `John Carlo Nas` Migrated API keys to Key Vault with RBAC (Secrets Officer + Secrets User).
+- `John Carlo Nas` Created the `shame-wall` container in Cosmos DB (`StartdownDB`).
+- `John Carlo Nas` Added App Service Environment Variables pointing to Key Vault secrets.
+- `John Carlo Nas` Linked GitHub repo to App Service and pushed the final production deploy.
 
 ### Changed
-- `John Carlo Nas` Refactored frontend React components (`RoastInput.jsx` and `WallOfShame.jsx`) to replace static mock data with dynamic `fetch()` calls to the new local API routes (`/api/roast` and `/api/wall`).
-- `John Carlo Nas` Updated backend service initialization to dynamically toggle between local `db.json` and Azure Cosmos DB based on the environment state.
-- `John Carlo Nas` Overhauled `deployment/README.md` to restructure all provisioning phases into organized tables, replaced inline image embeds with clickable screenshot links, and documented all newly added Azure infrastructure steps.
+- `John Carlo Nas` Replaced mock data in `RoastInput.jsx` and `WallOfShame.jsx` with live `/api/roast` and `/api/wall` calls.
+- `John Carlo Nas` Backend now toggles between local `db.json` and Cosmos DB based on `NODE_ENV`.
+- `John Carlo Nas` Rewrote `deployment/README.md` — reorganized into tables, switched images to clickable links.
 
 ### Fixed
-- `John Carlo Nas` Corrected `server/index.js` database and container ID parameters to match the provisioned Cosmos DB resource names (`StartdownDB` / `shame-wall`), resolving the production data layer connection.
+- `John Carlo Nas` Fixed Cosmos DB IDs in `server/index.js` to match the actual provisioned names (`StartdownDB` / `shame-wall`).
+- `John Carlo Nas` Fixed the UI inconsistency by enforcing 3-line truncation with ellipsis for both roast summaries and original ideas on the Wall of Shame.
+- `John Carlo Nas` Integrated **Azure Application Insights** for deep-level monitoring, tracking request telemetry and performance metrics.
+- `John Carlo Nas` Updated all project documentation (README, Architecture, Report) to reflect the shift from basic monitoring to full observability.

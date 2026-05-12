@@ -34,11 +34,19 @@ We implemented a zero-trust model where the application code never "knows" its o
 ### 4.2 High Availability
 The platform is resilient to individual instance failures. By maintaining a minimum of 2 instances, Azure’s load balancer automatically routes traffic away from unhealthy nodes, satisfying the project’s fault-tolerance requirements.
 
-## 5. Deployment & CI/CD
+## 5. Monitoring & Observability
+### 5.1 Application Insights Integration
+To ensure the platform remains stable and performant, we integrated **Azure Application Insights**. This provides:
+1. **Request Tracking**: Real-time monitoring of every incoming request to the App Service.
+2. **Dependency Analysis**: Tracking response times from the Groq AI engine and Cosmos DB.
+3. **Exception Logging**: Automatic capture of backend errors for rapid debugging.
+4. **Performance Metrics**: Monitoring CPU and Memory usage across both instances.
+
+## 6. Deployment & CI/CD
 The project utilizes a modern DevOps workflow:
 - **Source Control:** GitHub.
 - **Continuous Deployment:** GitHub Actions automatically builds the React frontend and deploys the entire package to the Azure Web App upon every push to `main`.
 - **Infrastructure Management:** Provisioned via the Azure Portal GUI with detailed step-by-step documentation.
 
-## 6. Conclusion
+## 7. Conclusion
 Startdown.ideas successfully integrates advanced AI with enterprise-grade cloud services. By leveraging Azure’s serverless and managed offerings, we have created a platform that is both technologically robust and financially sustainable, meeting all criteria for the CSEC 3 final project.

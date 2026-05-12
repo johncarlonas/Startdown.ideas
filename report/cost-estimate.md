@@ -16,9 +16,12 @@ The application follows a highly available, secure architecture using a load-bal
 Below is the detailed breakdown and summary generated via the Azure Pricing Calculator:
 
 ### 3.1 Service-Level Estimates
-![App Service Estimated Cost](screenshots/as-estimated-cost.png)
-![Cosmos DB Estimated Cost](screenshots/cd-estimated-cost.png)
-![Key Vault Estimated Cost](screenshots/kv-estimated-cost.png)
+
+| Service | Screenshot |
+| :--- | :--- |
+| App Service Estimated Cost | [View Photo](screenshots/as-estimated-cost.png) |
+| Cosmos DB Estimated Cost | [View Photo](screenshots/cd-estimated-cost.png) |
+| Key Vault Estimated Cost | [View Photo](screenshots/kv-estimated-cost.png) |
 
 ### 3.2 Total Monthly Estimate
 ![Total Estimated Cost Summary](screenshots/total_estimated_cost.png)
