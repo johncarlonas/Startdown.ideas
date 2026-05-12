@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "verdictBadge": "ECOLOGICAL FANTASY",
+    "badgeColor": "ember",
+    "roastText": "You think people will pay for virtual ownership of something they can experience for free in their backyard. Your 'innovation' is a masterclass in rebranding the mundane as unique, but it's still a house of cards. The environmental impact of NFTs is already a concern, and now you want to tokenise a leaf? Please, tell me more about how you plan to revolutionise the world with digitised detritus. Your concept is an insult to the very notion of scarcity and value.",
+    "feasScore": 12,
+    "feasNote": "Not feasible",
+    "marketScore": 20,
+    "marketNote": "No market demand",
+    "origScore": 40,
+    "origNote": "Not original idea",
+    "advice": [
+      {
+        "type": "PIVOT",
+        "text": "Consider an educational platform about nature instead",
+        "color": "hazard"
+      },
+      {
+        "type": "SURVIVE",
+        "text": "Abandon this NFT idea before you lose everything",
+        "color": "ember"
+      },
+      {
+        "type": "COPE",
+        "text": "Research the environmental impact of your 'innovation' before proceeding",
+        "color": "acid"
+      }
+    ],
+    "idea": "I want to create a website where users can turn nature into NFT such as air, leaves, rocks, etc.",
+    "id": "b010b631-c6f5-4eb0-a7c1-e622f7f4ca82",
+    "timestamp": "2026-05-12T04:57:09.472Z",
+    "is_posted": true
+  }
+]

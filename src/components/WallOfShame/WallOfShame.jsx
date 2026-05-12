@@ -4,13 +4,18 @@ import WallOfShameCard from '../WallOfShameCard/WallOfShameCard';
 
 const WallOfShame = () => {
   const [roasts, setRoasts] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(3);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/wall`)
+    fetch(`/api/wall`)
       .then(res => res.json())
       .then(data => setRoasts(data))
       .catch(err => console.error('Error fetching wall:', err));
   }, []);
+
+  const handleLoadMore = () => {
+    setVisibleCount(prev => prev + 3);
+  };
 
   return (
     <section id="wall-of-shame" className={styles.section}>
@@ -25,17 +30,19 @@ const WallOfShame = () => {
         <div className={styles.grid}>
           {roasts
             .sort((a, b) => new Date(b.timestamp || 0) - new Date(a.timestamp || 0))
-            .slice(0, 3)
+            .slice(0, visibleCount)
             .map((roast) => (
               <WallOfShameCard key={roast.id} roast={roast} />
             ))}
         </div>
 
-        <div className={styles.btnWrapper}>
-          <a href="/trash-ideas" className={styles.viewAllBtn}>
-            VIEW ALL TRASH IDEAS
-          </a>
-        </div>
+        {visibleCount < roasts.length && (
+          <div className={styles.btnWrapper}>
+            <button onClick={handleLoadMore} className={styles.viewAllBtn}>
+              LOAD MORE TRASH
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

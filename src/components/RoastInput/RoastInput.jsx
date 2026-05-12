@@ -41,18 +41,11 @@ const RoastInput = () => {
           const next = prev + increment;
           if (next >= 98) {
             clearInterval(progressInterval);
-            return 100;
+            return 98; // Hold at 98% until fetch finishes
           }
           return next;
         });
       }, 150);
-
-      setTimeout(() => {
-        clearInterval(msgInterval);
-        clearInterval(progressInterval);
-        setProgress(100);
-        setTimeout(() => setStatus("success"), 300);
-      }, 3000);
     }
 
     return () => {
@@ -80,18 +73,21 @@ const RoastInput = () => {
       
       const roastData = await response.json();
       setCurrentRoast(roastData);
-      setStatus("success");
+      
       setProgress(100);
+      setTimeout(() => {
+        setStatus("success");
+        if (window.matchMedia("(max-width: 991px)").matches) {
+          setTimeout(() => {
+            const feedbackEl = feedbackZoneRef.current;
+            if (!feedbackEl) return;
+            const navHeight = document.querySelector("nav")?.offsetHeight || 0;
+            const top = feedbackEl.getBoundingClientRect().top + window.scrollY - navHeight - 10;
+            window.scrollTo({ top, behavior: "smooth" });
+          }, 100);
+        }
+      }, 400); // Brief delay so user sees 100%
 
-      if (window.matchMedia("(max-width: 991px)").matches) {
-        setTimeout(() => {
-          const feedbackEl = feedbackZoneRef.current;
-          if (!feedbackEl) return;
-          const navHeight = document.querySelector("nav")?.offsetHeight || 0;
-          const top = feedbackEl.getBoundingClientRect().top + window.scrollY - navHeight - 10;
-          window.scrollTo({ top, behavior: "smooth" });
-        }, 100);
-      }
     } catch (err) {
       console.error(err);
       setStatus("idle");

@@ -8,6 +8,7 @@ import OpenAI from 'openai';
 import { DefaultAzureCredential } from '@azure/identity';
 import { SecretClient } from '@azure/keyvault-secrets';
 import { CosmosClient } from '@azure/cosmos';
+import crypto from 'crypto';
 
 dotenv.config();
 
@@ -40,7 +41,7 @@ async function initializeServices() {
       try {
         const data = await fs.readFile(DB_PATH, 'utf8');
         localDb = JSON.parse(data);
-      } catch (err) {
+      } catch {
         await fs.writeFile(DB_PATH, JSON.stringify([]));
       }
     } else {
@@ -128,6 +129,11 @@ REQUIRED JSON STRUCTURE:
 
 app.post('/api/save', async (req, res) => {
   const roastData = req.body;
+  
+  if (!roastData || !roastData.roastText) {
+    return res.status(400).json({ error: 'Invalid roast data' });
+  }
+
   try {
     const item = {
       ...roastData,
