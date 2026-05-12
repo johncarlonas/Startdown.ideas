@@ -70,6 +70,9 @@ All notable changes to this project will be documented in this file.
 - `John Carlo Nas` Integrated the `@azure/cosmos` SDK into the backend to handle real-time NoSQL read/write operations for the "Wall of Shame" feature.
 - `John Carlo Nas` Finalized the "Startdown AI Engine" with Groq (Llama 3.3) integration, a brutalist responsive UI, and a dedicated Wall of Shame expansion system.
 - `John Carlo Nas` Configured GitHub Actions CI workflow (`ci.yml`) to automate frontend builds and backend dependency validation.
+- `John Carlo Nas` Completed the Deliverable 2 Deployment Documentation (`deployment/README.md`) with a detailed step-by-step GUI provisioning walkthrough.
+- `John Carlo Nas` Finalized the Cost Estimate Report (`report/cost-estimate.md`) with comprehensive itemized pricing proof and cost-optimization strategies.
+- `John Carlo Nas` Integrated 20+ infrastructure screenshots across all documentation to satisfy project rubric evidence requirements.
 
 ### Changed
 - `John Carlo Nas` Refactored frontend React components (`RoastInput.jsx` and `WallOfShame.jsx`) to replace static mock data with dynamic `fetch()` calls to the new local API routes (`/api/roast` and `/api/wall`).
