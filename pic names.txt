@@ -1,0 +1,24 @@
+app services
+- as_basics.png
+- as_networking.png
+- as_review.png
+- as_success.png
+
+app service plan
+- asp_basics.png
+- asp_review.png
+- asp_success.png
+
+key vault
+- kv_basics.png
+- kv_access_config.png
+- kv_review.png
+- kv_success.png
+
+cosmos db
+- cd-basics.png
+- cd-networking.png
+- cd_backup_policy.png
+- cd-global-dist.png
+- cd-review.png
+- cd-success.png
