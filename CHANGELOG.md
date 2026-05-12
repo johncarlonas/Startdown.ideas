@@ -2,21 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2026-04-25]
+## [2026-04-25] - UI/UX Prototype
 
 ### Added
 
 - `John Carlo Nas` Finalized the Brutalist UI/UX design system, including the custom color palette and component layouts.
 - `John Carlo Nas` Developed the static React.js frontend, ensuring UI components and mock data structures are ready for Azure backend integration.
 
-## [2026-04-26]
+## [2026-04-26] - Initial Azure Foundation
 
 ### Added
 
 - `John Carlo Nas` Created master `README.md` and `CHANGELOG.md` documentation templates adhering to project rubric requirements.
 - `John Carlo Nas` Provisioned the foundational Azure infrastructure by creating the primary Resource Group (`rg-csec3-final-project`) in the Azure Portal.
 
-## [2026-05-06]
+## [2026-05-06] - Data Layer Provisioning
 
 ### Added
 
@@ -27,7 +27,7 @@ All notable changes to this project will be documented in this file.
 
 - `John Carlo Nas` Adjusted Cosmos DB firewall to "All networks" to prepare for cross-service communication testing.
 
-## [2026-05-08]
+## [2026-05-08] - Compute & Security Hardening
 
 ### Added
 
@@ -39,7 +39,7 @@ All notable changes to this project will be documented in this file.
 
 - `John Carlo Nas` Resolved `RequestDisallowedByAzure` policy blocks by successfully validating the B1 Pricing Tier within the Japan East region, bypassing previous regional compute-quota limitations.
 
-## [2026-05-10]
+## [2026-05-10] - Application Hosting & Scaling
 
 ### Added
 
@@ -56,13 +56,13 @@ All notable changes to this project will be documented in this file.
 
 - `John Carlo Nas` Navigated API Throttling (Error 429) during rapid infrastructure deployments by pacing resource provisioning and successfully validating the final Web App container.
 
-## [2026-05-11]
+## [2026-05-11] - Architecture Finalization
 
 ### Added
 - `John Carlo Nas` Designed and finalized the Cloud Architecture Diagram (`architecture.png`), clearly defining the private network security boundaries, scaling configurations (2 instances), and cost optimizations (Serverless DB).
 - `John Carlo Nas` Generated standard Groq API credentials and prepared them for secure injection into Azure Key Vault, finalizing the hybrid external-API security approach to bypass student subscription limits.
 
-## [2026-05-12]
+## [2026-05-12] - AI Engine Integration & Project Completion
 
 ### Added
 - `John Carlo Nas` Initialized the Node.js/Express backend server (`server/` directory) to serve as the integration layer between the React frontend and Azure services.
