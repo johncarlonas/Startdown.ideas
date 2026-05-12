@@ -54,8 +54,8 @@ async function initializeServices() {
       groqKey = groqSecret.value;
       
       const cosmosClient = new CosmosClient(cosmosSecret.value);
-      const { database } = await cosmosClient.databases.createIfNotExists({ id: 'startdown' });
-      const { container } = await database.containers.createIfNotExists({ id: 'roasts' });
+      const { database } = await cosmosClient.databases.createIfNotExists({ id: 'StartdownDB' });
+      const { container } = await database.containers.createIfNotExists({ id: 'shame-wall' });
       cosmosContainer = container;
     }
 

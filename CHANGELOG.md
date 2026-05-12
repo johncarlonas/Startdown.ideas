@@ -73,6 +73,15 @@ All notable changes to this project will be documented in this file.
 - `John Carlo Nas` Completed the Deliverable 2 Deployment Documentation (`deployment/README.md`) with a detailed step-by-step GUI provisioning walkthrough.
 - `John Carlo Nas` Finalized the Cost Estimate Report (`report/cost-estimate.md`) with comprehensive itemized pricing proof and cost-optimization strategies.
 - `John Carlo Nas` Integrated 20+ infrastructure screenshots across all documentation to satisfy project rubric evidence requirements.
+- `John Carlo Nas` Migrated sensitive API keys and connection strings to **Azure Key Vault**, implementing a zero-trust security model via **RBAC (Key Vault Secrets Officer and User)**.
+- `John Carlo Nas` Initialized the production NoSQL environment in **Cosmos DB** by creating the database container with serverless scaling optimizations.
+- `John Carlo Nas` Configured production **App Service Environment Variables** to securely bridge the application with Key Vault secrets.
+- `John Carlo Nas` Connected the GitHub repository to **Azure App Service** and successfully triggered the final production deployment.
 
 ### Changed
 - `John Carlo Nas` Refactored frontend React components (`RoastInput.jsx` and `WallOfShame.jsx`) to replace static mock data with dynamic `fetch()` calls to the new local API routes (`/api/roast` and `/api/wall`).
+- `John Carlo Nas` Updated backend service initialization to dynamically toggle between local `db.json` and Azure Cosmos DB based on the environment state.
+- `John Carlo Nas` Overhauled `deployment/README.md` to restructure all provisioning phases into organized tables, replaced inline image embeds with clickable screenshot links, and documented all newly added Azure infrastructure steps.
+
+### Fixed
+- `John Carlo Nas` Corrected `server/index.js` database and container ID parameters to match the provisioned Cosmos DB resource names (`StartdownDB` / `shame-wall`), resolving the production data layer connection.

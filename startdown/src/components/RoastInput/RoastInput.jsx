@@ -12,7 +12,7 @@ const loadingMessages = [
   "Checking if YC already rejected this...",
 ];
 
-const RoastInput = () => {
+const RoastInput = ({ onShareSuccess }) => {
   const [idea, setIdea] = useState("");
   const [status, setStatus] = useState("idle"); // idle, loading, success
   const [progress, setProgress] = useState(0);
@@ -111,6 +111,7 @@ const RoastInput = () => {
       });
       if (response.ok) {
         setModalState({ type: "successShare", isOpen: true });
+        if (onShareSuccess) onShareSuccess();
       }
     } catch (err) {
       console.error(err);

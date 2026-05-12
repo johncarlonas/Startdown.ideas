@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './WallOfShame.module.css';
 import WallOfShameCard from '../WallOfShameCard/WallOfShameCard';
 
-const WallOfShame = () => {
+const WallOfShame = ({ refreshKey }) => {
   const [roasts, setRoasts] = useState([]);
   const [visibleCount, setVisibleCount] = useState(3);
 
@@ -11,7 +11,7 @@ const WallOfShame = () => {
       .then(res => res.json())
       .then(data => setRoasts(data))
       .catch(err => console.error('Error fetching wall:', err));
-  }, []);
+  }, [refreshKey]);
 
   const handleLoadMore = () => {
     setVisibleCount(prev => prev + 3);
