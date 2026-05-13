@@ -56,8 +56,6 @@ To satisfy the requirements for a high-performance, secure, and cost-efficient p
 2. **[O2] Managed Identity & Key Vault (Security)**: Implemented a Zero-Trust approach using Azure Managed Identities and Key Vault to eliminate hardcoded secrets and "Secret Leakage" risks.
 3. **[O3] Advanced Telemetry & Monitoring (Operations)**: Integrated Azure Application Insights for deep-level telemetry, tracking request latency and AI engine performance in real-time.
 4. **[O4] Serverless Architecture (Cost Optimization)**: Utilized Azure Cosmos DB in Serverless mode to eliminate idle costs, perfect for handling unpredictable startup traffic patterns.
-5. **[O5] Fault Tolerance (High Availability)**: Configured App Service Plan for 2 instances in Japan East, ensuring redundancy and automatic load balancing between healthy nodes.
-
 ---
 
 ## Technical Stack
