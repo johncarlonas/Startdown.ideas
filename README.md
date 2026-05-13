@@ -45,7 +45,7 @@ For the complete analysis and cost optimization strategies, view the [Full Cost 
 
 ### Deliverable 4: Live Demo and Video Presentation
 * **Live Application URL:** [Startdown.ideas URL](https://startdown-ideas-bpg7g0fze0h7f0e3.japaneast-01.azurewebsites.net/)
-* **Video Presentation:** [Cloud Computing Final Project - Startdown.ideas on Azure]([https://youtu.be/I3Aygtw2sIg])
+* **Video Presentation:** [Cloud Computing Final Project - Startdown.ideas on Azure](https://youtu.be/I3Aygtw2sIg)
 
 ---
 
