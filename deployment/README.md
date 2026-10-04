@@ -1,118 +1,62 @@
-# Deployment Documentation (GUI Method)
+# Vercel Deployment Guide
 
-This repository utilizes **Method B (GUI)** for infrastructure deployment. This document provides a detailed, sequential walkthrough of the provisioning process within the Azure Portal, ensuring a secure, scalable, and cost-optimized environment for the **Startdown.ideas** platform.
+This project is deployed as a Vite frontend and a Node.js/Express Vercel Function. Azure Cosmos DB, Azure Key Vault, Managed Identity, and Application Insights are no longer used by the runtime.
 
----
+## 1. Create the Redis database
 
-## 1. Resource Mapping & Requirements
+In the Vercel project, open **Integrations → Marketplace** and add an Upstash Redis integration. Link the new database to the project. The integration provides:
 
-The following table maps deployed infrastructure to the core requirements of the project rubric:
+- `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` (or the integration's `KV_REST_API_URL` and `KV_REST_API_TOKEN` names)
 
-| Requirement | Azure Resource Name | Specification |
-| :--- | :--- | :--- |
-| **1. Resource Group** | `rg-csec3-final-project` | Logical boundary and management container in Japan East. |
-| **2. Core Compute** | `startdown-ideas` (App Service) | B1 Tier, scaled to **2 Instances** for High Availability. |
-| **3. Data Resource** | `startdown-ideas` (Cosmos DB) | NoSQL Serverless mode for cost-efficiency and JSON flexibility. |
-| **4. Security Control** | `kv-startdown-ideas` (Key Vault) | Secured via Managed Identity and **RBAC** (Passwordless). |
+The app stores each Wall of Shame entry as one JSON string in the `startdown:wall` Redis list. New entries are pushed to the front, and the API reads the list in that same order.
 
----
+## 2. Import the repository
 
-## 2. Detailed Provisioning Steps
+1. Import the Git repository at [vercel.com/new](https://vercel.com/new).
+2. Set **Root Directory** to `startdown`.
+3. Keep the Vite framework preset.
+4. Keep the build command as `npm run build` and the output directory as `dist`.
+5. Deploy after adding the environment variables below.
 
-### Phase 1: Resource Group Foundation
+The `startdown/vercel.json` file routes `/api/*` to the Express function and all other paths to the Vite SPA entry point.
 
-Established a primary Resource Group named `rg-csec3-final-project` as the logical container and security boundary for all project assets. Provisioned in the **Japan East** region to ensure high availability and bypass regional subscription locks.
+## 3. Add environment variables
 
-| Step | Screenshot |
+Add these in **Project Settings → Environment Variables** for Preview and Production:
+
+| Name | Purpose |
 | :--- | :--- |
-| Configuring resource group basics | [View Photo](screenshots/resource_group/rg-basics.png) |
-| Adding resource tags | [View Photo](screenshots/resource_group/rg-tags.png) |
-| Reviewing RG settings | [View Photo](screenshots/resource_group/rg-review.png) |
-| Resource group successfully deployed | [View Photo](screenshots/resource_group/rg-deployed.png) |
+| `GROQ_API_KEY` | Server-side Groq API credential |
+| `GROQ_MODEL` | Optional Groq model ID; defaults to `openai/gpt-oss-120b` |
+| `UPSTASH_REDIS_REST_URL` or `KV_REST_API_URL` | Upstash REST endpoint |
+| `UPSTASH_REDIS_REST_TOKEN` or `KV_REST_API_TOKEN` | Upstash REST credential |
+| `REDIS_WALL_KEY` | Optional Redis list name; defaults to `startdown:wall` |
+| `ROASTS_PER_MINUTE` | Optional maximum requests per IP per rolling minute; defaults to `3` |
+| `ROASTS_PER_DAY` | Optional maximum requests per IP per rolling 24 hours; defaults to `10` |
+| `ROASTS_SITE_PER_DAY` | Optional maximum requests across the site per rolling 24 hours; defaults to `100` |
 
----
+Do not prefix these variables with `VITE_`; that would expose them to browser code.
 
-### Phase 2: Data Layer (Azure Cosmos DB)
+The defaults apply without adding these optional limit variables. Redis enforces the production limits atomically across Vercel instances. If Redis is unavailable, generation stops before calling Groq. Failed generation attempts count toward the limits; automatic Groq retries are disabled, input is limited to 1000 characters, and output is capped at 2000 tokens per request. These are request and token ceilings, not a dollar billing cap. Per-IP limits can affect people sharing a network; the site-wide ceiling remains in place if someone changes their IP.
 
-Deployed an Azure Cosmos DB account (`startdown-ideas`) in **Serverless capacity mode** to eliminate idle costs. The serverless model charges only for Request Units (RUs) consumed during active operations — ideal for variable startup traffic. The database (`StartdownDB`) and container (`shame-wall`) were created for storing roast JSON objects.
+Local development uses in-memory limits, which reset when the backend restarts. Production requires real Redis credentials; leave no placeholder credentials in Vercel. Keep the same Redis database and wall key across instances to share the counters.
 
-| Step | Screenshot |
-| :--- | :--- |
-| Initializing the NoSQL account | [View Photo](screenshots/cosmos_db/cd-basics.png) |
-| Configuring connectivity | [View Photo](screenshots/cosmos_db/cd-networking.png) |
-| Setting retention/backup policy | [View Photo](screenshots/cosmos_db/cd-backup-policy.png) |
-| Regional distribution settings | [View Photo](screenshots/cosmos_db/cd-global-dist.png) |
-| Pre-deployment validation | [View Photo](screenshots/cosmos_db/cd-review.png) |
-| Successful deployment confirmation | [View Photo](screenshots/cosmos_db/cd-success.png) |
-| Creating the `shame-wall` container | [View Photo](screenshots/cosmos_db/cd-container-creation.png) |
-| Extracting connection string for Key Vault | [View Photo](screenshots/cosmos_db/cd-keys-extraction.png) |
+Only server-generated verdicts can be shared. A verdict's share token expires after 24 hours, and repeat submissions of the same token cannot create additional wall entries. The homepage shows the newest three entries; `/wall-of-shame` displays paginated entries. Restart the local backend after pulling these changes so it uses the new API contract and protections.
 
----
+## 4. Verify the deployment
 
-### Phase 3: Compute Infrastructure (App Service Plan)
+After the first deployment:
 
-Provisioned an Azure App Service Plan (`startdown-ideas`) on the **Basic (B1)** tier. This plan supports **Manual Scale-out**, allowing the infrastructure to run on **2 instances** for load balancing and high availability.
+1. Open the site and submit an idea.
+2. Confirm the roast is returned by `/api/roast`.
+3. Share the roast and refresh the page.
+4. Confirm it appears in the Wall of Shame from `/api/wall`.
+5. Check the Vercel function logs if either API request returns an error.
+6. Confirm both the navbar and home “Show more” link open `/wall-of-shame`, and refresh that page directly.
+7. Confirm a shared verdict's button becomes disabled and a repeated share request creates no duplicate.
 
-| Step | Screenshot |
-| :--- | :--- |
-| Configuring the Linux plan | [View Photo](screenshots/app_service_plan/asp-basics.png) |
-| Reviewing compute resources | [View Photo](screenshots/app_service_plan/asp-review.png) |
-| Plan creation successful | [View Photo](screenshots/app_service_plan/asp-success.png) |
+Vercel Functions run on Node.js by default. The API does not write to the local filesystem in production; `server/db.json` is only the development fallback.
 
----
+## Existing Azure data
 
-### Phase 4: Application Hosting (App Service)
-
-Deployed the Azure App Service (`startdown-ideas`) as the primary hosting environment for the Node.js backend and React frontend (Node 22 LTS runtime). Configured with a **System-Assigned Managed Identity** to enable passwordless access to Azure Key Vault, and populated **Environment Variables** to bridge the app with production secrets.
-
-| Step | Screenshot |
-| :--- | :--- |
-| Setting up the web app instance | [View Photo](screenshots/app_services/as-basics.png) |
-| Public access / networking settings | [View Photo](screenshots/app_services/as-networking.png) |
-| Final configuration summary | [View Photo](screenshots/app_services/as-review.png) |
-| Web App successfully provisioned | [View Photo](screenshots/app_services/as-success.png) |
-| Enabling System-Assigned Managed Identity | [View Photo](screenshots/app_services/as-identity-on.png) |
-| Configuring App Service Environment Variables | [View Photo](screenshots/app_services/as-env-variables.png) |
-| GitHub deployment pipeline success | [View Photo](screenshots/app_services/as-deployment-success.png) |
-
----
-
-### Phase 5: Security Layer (Azure Key Vault)
-
-Implemented Azure Key Vault (`kv-startdown-ideas`) as the centralized secret store for the Groq API key and Cosmos DB connection string. Configured with **Role-Based Access Control (RBAC)**:
-
-- **Key Vault Secrets User** → Assigned to the App Service's Managed Identity (runtime access).
-- **Key Vault Secrets Officer** → Assigned to the developer (administrative access).
-
-This zero-trust approach eliminates the need for hardcoded credentials anywhere in the codebase.
-
-| Step | Screenshot |
-| :--- | :--- |
-| Standard Tier vault setup | [View Photo](screenshots/key_vault/kv-basics.png) |
-| Configuring RBAC access model | [View Photo](screenshots/key_vault/kv-access-config.png) |
-| Reviewing access policies | [View Photo](screenshots/key_vault/kv-review.png) |
-| Security vault live | [View Photo](screenshots/key_vault/kv-success.png) |
-| Assigning Secrets User role to Managed Identity | [View Photo](screenshots/key_vault/kv-rbac-secrets-user.png) |
-| Assigning Secrets Officer role to developer | [View Photo](screenshots/key_vault/kv-rbac-self-assignment.png) |
-| Production secrets stored in vault | [View Photo](screenshots/key_vault/kv-secrets-list.png) |
-
----
-
-## 3. Scale-Up & Scale-Out Configuration
-
-To fulfill the requirements for High Availability and Fault Tolerance, the following adjustments were performed:
-
-| Configuration | Detail |
-| :--- | :--- |
-| **Scale-Up** | Upgraded from Free/Shared to **B1 (Basic)** to unlock Managed Identity and Scaling features. |
-| **Scale-Out** | Manually adjusted instance count to **2**, ensuring traffic is load-balanced across two healthy nodes. |
-
----
-
-## 4. CI/CD Pipeline (GitHub Actions)
-
-The GitHub repository is connected to the Azure App Service via a GitHub Actions workflow (`.github/workflows/main_startdown-ideas.yml`). Every push to the `main` branch automatically:
-
-1. Builds the React frontend (`npm run build`).
-2. Authenticates with Azure using Federated Identity Credentials.
-3. Deploys the full package (frontend `dist/` + backend `server/`) to the live App Service.
+The application no longer reads Cosmos DB. Existing Cosmos records will not appear in the new Redis list automatically. If those records matter, export them from Cosmos before deleting the Azure account and import the JSON objects into the Upstash `startdown:wall` list once.

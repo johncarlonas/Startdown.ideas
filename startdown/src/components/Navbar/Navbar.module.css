@@ -271,3 +271,6 @@
     padding: 0.6rem 1.75rem;
   }
 }
+
+.logoArea { text-decoration: none; color: inherit; }
+.hamburgerMenu { min-height: 44px; min-width: 44px; padding: 11px; }

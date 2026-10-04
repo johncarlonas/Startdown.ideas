@@ -17,6 +17,10 @@ const RoastInput = ({ onShareSuccess }) => {
   const [status, setStatus] = useState("idle"); // idle, loading, success
   const [progress, setProgress] = useState(0);
   const [msgIndex, setMsgIndex] = useState(0);
+  const [shareState, setShareState] = useState("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const submitting = useRef(false);
+  const sharing = useRef(false);
   const [currentRoast, setCurrentRoast] = useState(null);
   
   // Modal states
@@ -56,7 +60,9 @@ const RoastInput = ({ onShareSuccess }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!idea.trim() || idea.length < 10) return;
+    if (submitting.current || idea.trim().length < 10) return;
+    submitting.current = true;
+    setShareState("idle");
 
     setStatus("loading");
     setProgress(0);
@@ -69,9 +75,8 @@ const RoastInput = ({ onShareSuccess }) => {
         body: JSON.stringify({ idea })
       });
 
-      if (!response.ok) throw new Error('AI Disgust');
-      
       const roastData = await response.json();
+      if (!response.ok) throw new Error(roastData.error || 'Unable to generate a verdict. Try again.');
       setCurrentRoast(roastData);
       
       setProgress(100);
@@ -89,36 +94,46 @@ const RoastInput = ({ onShareSuccess }) => {
       }, 400); // Brief delay so user sees 100%
 
     } catch (err) {
-      console.error(err);
+      setErrorMessage(err.message);
       setStatus("idle");
       setModalState({ type: "error", isOpen: true });
-    }
+    } finally { submitting.current = false; }
   };
 
   const handleShareClick = () => {
+    if (shareState !== "idle" || sharing.current) return;
     setModalState({ type: "confirmShare", isOpen: true });
   };
 
   const confirmShare = async () => {
-    if (!currentRoast) return;
+    if (!currentRoast || sharing.current || shareState !== "idle") return;
+    sharing.current = true;
+    setShareState("saving");
     setModalState({ ...modalState, isOpen: false });
     
     try {
       const response = await fetch('/api/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...currentRoast, idea })
+        body: JSON.stringify({ shareToken: currentRoast.shareToken })
       });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "Unable to share. Please try again.");
       if (response.ok) {
+        setShareState("shared");
         setModalState({ type: "successShare", isOpen: true });
         if (onShareSuccess) onShareSuccess();
       }
     } catch (err) {
-      console.error(err);
-    }
+      setShareState("idle");
+      setErrorMessage(err.message);
+      setModalState({ type: "error", isOpen: true });
+    } finally { sharing.current = false; }
   };
 
   const handleReset = () => {
+    if (sharing.current) return;
+    setShareState("idle");
     setIdea("");
     setStatus("idle");
     setProgress(0);
@@ -172,7 +187,7 @@ const RoastInput = ({ onShareSuccess }) => {
                 spellCheck={false}
                 disabled={status !== "idle"}
               />
-              <button type="submit" className={styles.roastBtn} disabled={status !== "idle"}>ROAST ME</button>
+              <button type="submit" className={styles.roastBtn} disabled={status !== "idle" || idea.trim().length < 10}>ROAST ME</button>
               <p className={styles.warning}><span className={styles.warningLabel}>WARNING:</span> May cause existential crisis.</p>
             </form>
           </div>
@@ -257,8 +272,8 @@ const RoastInput = ({ onShareSuccess }) => {
                 </div>
 
                 <div className={styles.actionsRow}>
-                  <button className={styles.shareBtn} onClick={handleShareClick}>SHARE MY SHAME</button>
-                  <button className={styles.retryBtn} onClick={handleReset}>TRY ANOTHER DELUSION</button>
+                  <button className={styles.shareBtn} onClick={handleShareClick} disabled={shareState !== "idle"}>{shareState === "shared" ? "SHAME SHARED" : shareState === "saving" ? "SHARING..." : "SHARE MY SHAME"}</button>
+                  <button className={styles.retryBtn} onClick={handleReset} disabled={shareState === "saving"}>TRY ANOTHER DELUSION</button>
                 </div>
               </div>
             )}
@@ -271,10 +286,10 @@ const RoastInput = ({ onShareSuccess }) => {
     <Modal 
       isOpen={modalState.isOpen && modalState.type === "error"} 
       type="error" 
-      title="AI DISGUST (404)"
-      onClose={() => window.location.reload()}
+      title="PLEASE TRY AGAIN"
+      onClose={() => setModalState({ type: null, isOpen: false })}
     >
-      <p>The AI is too disgusted by your idea to respond. This level of delusion is literally not supported by the current API version.</p>
+      <p>{errorMessage}</p>
     </Modal>
 
     <Modal 

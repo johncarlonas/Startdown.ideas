@@ -1,4 +1,5 @@
 import React from "react";
+import useDialog from "./useDialog";
 import styles from "./Modal.module.css";
 
 const Modal = ({ 
@@ -10,11 +11,12 @@ const Modal = ({
   confirmText,
   onConfirm
 }) => {
+  const dialogRef = useDialog(isOpen, onClose);
   if (!isOpen) return null;
 
   return (
     <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+      <div ref={dialogRef} role="dialog" aria-modal="true" aria-label={title || "Alert"} tabIndex={-1} className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <div className={styles.iconWrapper}>
           <svg
             viewBox="0 0 24 24"

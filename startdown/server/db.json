@@ -1,5 +1,69 @@
 [
   {
+    "verdictBadge": "VIBE NONSENSE",
+    "roastText": "Congrats, you’ve turned a basic pedometer into a digital goldfish bowl. The tech is trivial, the market is saturated, and your users will tire of pixelated guppies faster than they burn calories. Unless you’ve got a secret partnership with a fish retailer, this is just another vanity metric chase.",
+    "feasNote": "Tech is a walk in the park",
+    "marketNote": "Already flooded with fitness gimmicks",
+    "origNote": "Seen it, done it, ignored it",
+    "badgeColor": "hazard",
+    "feasScore": 62,
+    "marketScore": 48,
+    "origScore": 35,
+    "advice": [
+      {
+        "type": "PIVOT",
+        "text": "Add a real‑world reward tied to health outcomes.",
+        "color": "hazard"
+      },
+      {
+        "type": "SURVIVE",
+        "text": "Slash development costs and launch as a simple widget.",
+        "color": "ember"
+      },
+      {
+        "type": "COPE",
+        "text": "If you must fish, make them NFT‑exclusive.",
+        "color": "acid"
+      }
+    ],
+    "idea": "I want to build a mobile app that turns users’ daily step counts into points they can spend on virtual fish, aquarium backgrounds, and decorative accessories.",
+    "id": "98d2227f-c208-4c7d-a8ca-344b7b9dc428",
+    "timestamp": "2026-10-04T00:56:25.248Z",
+    "is_posted": true
+  },
+  {
+    "verdictBadge": "ACTUALLY... OK?",
+    "roastText": "Surprisingly you’ve identified a real pain point instead of reinventing the toothbrush. Your integration claim sounds feasible, but expect endless API wrangling and a support nightmare. Pricing a flat subscription might work, yet you’ll need to convince dentists that texting isn’t a gimmick. If you pull this off, you might actually make something dentists don’t immediately ignore.",
+    "feasNote": "API hell awaits",
+    "marketNote": "Niche, but crowded",
+    "origNote": "Not groundbreaking",
+    "badgeColor": "acid",
+    "feasScore": 68,
+    "marketScore": 62,
+    "origScore": 58,
+    "advice": [
+      {
+        "type": "PIVOT",
+        "text": "Focus on one dominant scheduling platform first",
+        "color": "hazard"
+      },
+      {
+        "type": "SURVIVE",
+        "text": "Build rock‑solid customer support from day one",
+        "color": "ember"
+      },
+      {
+        "type": "COPE",
+        "text": "Add analytics to justify the subscription cost",
+        "color": "acid"
+      }
+    ],
+    "idea": "I want to build a tool for small dental clinics that automatically detects cancelled appointments, texts waitlisted patients, and fills open slots. It integrates with their existing scheduling software and charges each clinic a monthly subscription.",
+    "id": "0ef9f518-6fbe-44ae-8a3e-1e4c2f8e5918",
+    "timestamp": "2026-10-04T00:54:48.549Z",
+    "is_posted": true
+  },
+  {
     "verdictBadge": "ECOLOGICAL FANTASY",
     "badgeColor": "ember",
     "roastText": "You think people will pay for virtual ownership of something they can experience for free in their backyard. Your 'innovation' is a masterclass in rebranding the mundane as unique, but it's still a house of cards. The environmental impact of NFTs is already a concern, and now you want to tokenise a leaf? Please, tell me more about how you plan to revolutionise the world with digitised detritus. Your concept is an insult to the very notion of scarcity and value.",

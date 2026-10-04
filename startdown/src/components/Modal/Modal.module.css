@@ -105,3 +105,34 @@
   color: #888;
   transform: translate(-2px, -2px);
 }
+
+.overlay { padding: 1rem; }
+.modal {
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  padding: clamp(1rem, 5vw, 2.5rem);
+  overflow-wrap: anywhere;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-hazard) #151515;
+}
+
+.modal::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: #151515;
+  border-left: 1px solid #252525;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: var(--color-hazard);
+  border: 2px solid #151515;
+  min-height: 42px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ember);
+}
+.actionsRow { flex-wrap: wrap; }
+.confirmBtn, .cancelBtnClipped { flex: 1 1 130px; min-width: 0; min-height: 44px; }

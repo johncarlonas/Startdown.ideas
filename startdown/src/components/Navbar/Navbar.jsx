@@ -3,38 +3,14 @@ import styles from "./Navbar.module.css";
 import Modal from "../Modal/Modal";
 
 const NAV_ITEMS = [
-  { label: "HOME", href: "#hero" },
-  { label: "WALL OF SHAME", href: "#wall-of-shame" },
+  { label: "HOME", href: "/" },
+  { label: "WALL OF SHAME", href: "/wall-of-shame" },
 ];
 
 const Navbar = () => {
-  const [activeSection, setActiveSection] = useState("#hero");
+  const activeSection = window.location.pathname.replace(/\/$/, "") === "/wall-of-shame" ? "/wall-of-shame" : "/";
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200; // Offset for navbar + buffer
-
-      const hero = document.getElementById("hero");
-      const wall = document.getElementById("wall-of-shame");
-
-      let current = "#hero";
-
-      // Check from bottom-most section upwards to ensure the correct highlight
-      if (wall && scrollPosition >= wall.offsetTop) {
-        current = "#wall-of-shame";
-      } else if (hero && scrollPosition >= hero.offsetTop) {
-        current = "#hero";
-      }
-
-      setActiveSection(current);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -47,28 +23,15 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleNavClick = (href) => {
-    setActiveSection(href); // Immediate highlight on click
-    if (href === "#hero") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      const el = document.querySelector(href);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-    setIsMobileMenuOpen(false);
-  };
-
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
-        <div className={styles.logoArea}>
+        <a href="/" className={styles.logoArea} aria-label="Startdown home">
           <span className={styles.logoText}>
             Startdown<span className={styles.dot}>.</span>
             <span className={styles.logoHighlight}>ideas</span>
           </span>
-        </div>
+        </a>
 
         <button
           type="button"
@@ -89,10 +52,7 @@ const Navbar = () => {
               key={item.href}
               href={item.href}
               className={`${styles.link} ${activeSection === item.href ? styles.active : ""}`}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(item.href);
-              }}
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.label}
             </a>
@@ -115,10 +75,7 @@ const Navbar = () => {
                 key={item.href}
                 href={item.href}
                 className={`${styles.link} ${activeSection === item.href ? styles.active : ""}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.href);
-                }}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
               </a>

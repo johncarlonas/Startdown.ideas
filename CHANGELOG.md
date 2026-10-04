@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2026-10-04] - Vercel Migration
+
+### Changed
+- Removed Azure Cosmos DB, Key Vault, Managed Identity, and Application Insights from the runtime.
+- Moved production Wall of Shame persistence to an Upstash Redis list accessed over HTTPS.
+- Added a Vercel Function entry point and deployment configuration for the Vite frontend.
+- Removed the Azure App Service deployment workflow.
+- Updated the Groq model after `llama-3.3-70b-versatile` was deprecated.
+
 ## [2026-04-25] - UI/UX Prototype
 
 ### Added

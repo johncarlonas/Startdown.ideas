@@ -222,3 +222,35 @@
     font-size: 0.9rem;
   }
 }
+
+.overlay { padding: 1rem; }
+.modal { max-height: calc(100dvh - 2rem); padding: 0; max-width: 700px; overflow: hidden; overflow-wrap: anywhere; }
+.header, .footer { flex-shrink: 0; }
+.header { gap: .5rem; }
+.title { min-width: 0; }
+.closeIcon { flex-shrink: 0; min-width: 44px; min-height: 44px; }
+.scrollArea {
+  min-height: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-hazard) #151515;
+}
+
+.scrollArea::-webkit-scrollbar {
+  display: block;
+  width: 10px;
+}
+
+.scrollArea::-webkit-scrollbar-track {
+  background: #151515;
+  border-left: 1px solid #252525;
+}
+
+.scrollArea::-webkit-scrollbar-thumb {
+  background: var(--color-hazard);
+  border: 2px solid #151515;
+  min-height: 42px;
+}
+
+.scrollArea::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ember);
+}

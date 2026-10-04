@@ -201,3 +201,6 @@
     padding: 0.9rem 2.5rem;
   }
 }
+
+.page { min-height: 80dvh; }
+.header .viewAllBtn { margin-top: 1.5rem; }

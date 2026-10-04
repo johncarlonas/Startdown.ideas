@@ -889,3 +889,14 @@
     font-size: 2rem;
   }
 }
+
+.columns > *, .bottomSplit > * { min-width: 0; }
+.roastHeaderRow, .inputHeader { flex-wrap: wrap; gap: .5rem; }
+.verdictBadgeSmall, .roastTextBox, .metricNoteCompressed, .adviceText { overflow-wrap: anywhere; }
+.adviceText { white-space: normal; overflow: visible; }
+.actionsRow { flex-wrap: wrap; }
+.shareBtn, .retryBtn { flex: 1 1 150px; min-height: 44px; white-space: normal; }
+@media (min-width: 992px) {
+ .columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ .bottomSplit { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
+}

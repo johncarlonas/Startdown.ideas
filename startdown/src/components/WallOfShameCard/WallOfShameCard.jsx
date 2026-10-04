@@ -44,7 +44,7 @@ const WallOfShameCard = ({ roast }) => {
 
   return (
     <>
-      <div className={styles.card} onClick={() => setIsDetailOpen(true)}>
+      <div role="button" tabIndex={0} aria-label={`Read verdict: ${verdictBadge}`} onKeyDown={e => { if (["Enter", " "].includes(e.key)) { e.preventDefault(); setIsDetailOpen(true); } }} className={styles.card} onClick={() => setIsDetailOpen(true)}>
         <div className={styles.header}>
           <div className={styles.profileIcon}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

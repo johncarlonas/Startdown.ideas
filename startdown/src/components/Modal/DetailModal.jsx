@@ -1,7 +1,9 @@
 import React from "react";
+import useDialog from "./useDialog";
 import styles from "./DetailModal.module.css";
 
 const DetailModal = ({ isOpen, onClose, roast }) => {
+  const dialogRef = useDialog(isOpen, onClose);
   if (!isOpen || !roast) return null;
 
   const {
@@ -29,12 +31,12 @@ const DetailModal = ({ isOpen, onClose, roast }) => {
 
   return (
     <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+      <div ref={dialogRef} role="dialog" aria-modal="true" aria-label={roast.verdictBadge} tabIndex={-1} className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <div className={styles.header}>
           <h2 className={styles.title} style={{ color: getTitleColor() }}>
             {verdictBadge}
           </h2>
-          <button className={styles.closeIcon} onClick={onClose}>&times;</button>
+          <button className={styles.closeIcon} aria-label="Close verdict" onClick={onClose}>&times;</button>
         </div>
 
         <div className={styles.scrollArea}>

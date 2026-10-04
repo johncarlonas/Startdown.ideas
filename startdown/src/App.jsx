@@ -9,13 +9,16 @@ import "./App.css";
 function App() {
   const [wallRefreshKey, setWallRefreshKey] = useState(0);
 
+  const wallPage = window.location.pathname.replace(/\/$/, "") === "/wall-of-shame";
+
   return (
     <div className="app-container">
       <Navbar />
       <main>
-        <Hero />
+        {!wallPage && <><Hero />
         <RoastInput onShareSuccess={() => setWallRefreshKey((k) => k + 1)} />
-        <WallOfShame refreshKey={wallRefreshKey} />
+        </>}
+        <WallOfShame key={wallRefreshKey} preview={!wallPage} />
       </main>
       <Footer />
     </div>
